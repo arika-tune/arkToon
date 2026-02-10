@@ -288,6 +288,7 @@
                 <button onclick="switchTab('rim')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="rim">リムライト (Rim)</button>
                 <button onclick="switchTab('spec')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="spec">反射/SSS (Spec/SSS)</button>
                 <button onclick="switchTab('outline')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="outline">輪郭線 (Outline)</button>
+                <button onclick="switchTab('overlay')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="overlay">近接影 (Overlay)</button>
                 <button onclick="switchTab('other')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="other">その他 (Other)</button>
             </div>
 
@@ -450,6 +451,58 @@
                     </div>
                 </div>
 
+                <!-- Overlay Tab -->
+                <div id="overlay" class="tab-content">
+                    <h3 class="text-2xl font-bold text-burgundy-light mb-6 border-b border-gray-700 pb-2">近接影 (Distance Overlay)</h3>
+                    <p class="text-gray-400 text-sm mb-6">
+                        カメラがキャラクターに極端に接近した際に、視界を特定の色で塗りつぶしたり、影を落とす機能です。<br>
+                        VRChat等で他プレイヤーが視界に入り込んだ際の「中身が見える」現象を防いだり、ハグされた時の演出として使用されます。
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Left Column -->
+                        <div class="bg-gray-800/30 p-5 rounded-lg border border-gray-700">
+                            <h4 class="text-lg font-bold text-white mb-4"><i class="fa-solid fa-eye-slash mr-2"></i>表面設定 (Front)</h4>
+                            <ul class="space-y-4 text-sm text-gray-400">
+                                <li>
+                                    <span class="block text-burgundy-light font-bold mb-1">Color / Intensity</span>
+                                    オーバーレイする色と、その不透明度です。通常は黒色が使われますが、演出としてピンクや白などを設定することも可能です。
+                                </li>
+                                <li>
+                                    <span class="block text-burgundy-light font-bold mb-1">Range (影響範囲)</span>
+                                    カメラからどのくらいの距離で効果が出始めるかを設定します。<br>
+                                    値が小さいほど、顔が埋まる直前まで発動しません。
+                                </li>
+                                <li>
+                                    <span class="block text-burgundy-light font-bold mb-1">Falloff Curve</span>
+                                    減衰のカーブを「線形(Linear)」か「二次関数(Quadratic)」から選べます。Quadraticの方が急激に濃くなります。
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Right Column -->
+                        <div class="bg-gray-800/30 p-5 rounded-lg border border-gray-700">
+                            <h4 class="text-lg font-bold text-white mb-4"><i class="fa-solid fa-cube mr-2"></i>裏面・システム設定</h4>
+                            <ul class="space-y-4 text-sm text-gray-400">
+                                <li>
+                                    <span class="block text-burgundy-light font-bold mb-1">Backface Darkness</span>
+                                    <span class="text-xs">
+                                        カメラがメッシュの<strong>内部</strong>に入り込んだ際、ポリゴンの裏面を描画して視界を遮る強さです。<br>
+                                        これを設定しておくと、アバターの中に入られた時に相手の視界を真っ暗にできます。
+                                    </span>
+                                </li>
+                                <li class="pt-2 border-t border-gray-700">
+                                    <span class="block text-green-400 font-bold mb-1"><i class="fa-solid fa-shield-halved mr-1"></i>Prevent Near Clip (ニアクリップ防止)</span>
+                                    <div class="bg-dark-bg p-3 rounded text-xs border border-green-900/50">
+                                        頂点シェーダーでメッシュをカメラ奥（Far平面）へ押し込むことで、カメラのニアクリップ（視界がメッシュを貫通して中が見えてしまう現象）を物理的に防ぎます。<br>
+                                        <span class="text-yellow-500 mt-1 block">※VRモードでの没入感を高めるのに推奨されます。</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                  <!-- Other Tab -->
                  <div id="other" class="tab-content">
                     <h3 class="text-2xl font-bold text-burgundy-light mb-6 border-b border-gray-700 pb-2">その他 (MatCap / Emission)</h3>
@@ -469,6 +522,7 @@
                             Emission Mapを設定することで、特定の部分だけを光らせることができます。
                         </p>
                     </div>
+                    
                 </div>
 
             </div>
