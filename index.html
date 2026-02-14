@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arkToon Shader - Official Manual</title>
+    <title>arkToon - Stylized Lighting Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,13 +16,17 @@
                             dark: '#4a0012',
                         },
                         dark: {
-                            bg: '#121212',
-                            card: '#1e1e1e',
+                            bg: '#0a0a0a',
+                            card: '#151515',
                             text: '#e0e0e0'
+                        },
+                        accent: {
+                            gold: '#D4AF37'
                         }
                     },
                     fontFamily: {
                         sans: ['"Noto Sans JP"', 'sans-serif'],
+                        display: ['"Helvetica Neue"', 'Arial', 'sans-serif'],
                     }
                 }
             }
@@ -61,12 +65,12 @@
         }
 
         .gradient-bg {
-            background: linear-gradient(135deg, #4a0012 0%, #000000 100%);
+            background: radial-gradient(circle at center, #2a0010 0%, #000000 100%);
         }
 
         .nav-sticky {
             backdrop-filter: blur(10px);
-            background-color: rgba(18, 18, 18, 0.9);
+            background-color: rgba(10, 10, 10, 0.8);
         }
 
         /* Smooth Scrolling */
@@ -91,12 +95,13 @@
 
         .feature-card {
             transition: all 0.3s ease;
-            border: 1px solid #333;
+            border: 1px solid #222;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
         }
         .feature-card:hover {
             transform: translateY(-5px);
             border-color: #800020;
-            box-shadow: 0 10px 30px rgba(128, 0, 32, 0.2);
+            box-shadow: 0 10px 30px rgba(128, 0, 32, 0.15);
         }
 
         .tab-content {
@@ -110,6 +115,12 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        
+        .engine-badge {
+            background: linear-gradient(90deg, #800020, #4a0012);
+            border: 1px solid #a31b3e;
+            box-shadow: 0 0 15px rgba(163, 27, 62, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -117,13 +128,13 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 nav-sticky border-b border-burgundy-dark/50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter text-burgundy-light glow-text">
-                <i class="fa-solid fa-paintbrush mr-2"></i>arkToon
+            <a href="#" class="text-2xl font-bold tracking-tighter text-burgundy-light glow-text flex items-center">
+                <i class="fa-solid fa-cube mr-2 text-sm"></i> arkToon
             </a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-burgundy-light transition">概要</a>
-                <a href="#features" class="hover:text-burgundy-light transition">特徴</a>
-                <a href="#comparison" class="hover:text-burgundy-light transition">他シェーダー比較</a>
+                <a href="#about" class="hover:text-burgundy-light transition">エンジン概要</a>
+                <a href="#features" class="hover:text-burgundy-light transition">レンダリング特性</a>
+                <a href="#comparison" class="hover:text-burgundy-light transition">技術比較</a>
                 <a href="#manual" class="hover:text-burgundy-light transition">マニュアル</a>
             </div>
         </div>
@@ -131,165 +142,237 @@
 
     <!-- Hero Section -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden gradient-bg">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMTI4LCAwLCAzMiwgMC4xKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjAwLCA1MCwgODAsIDAuMDUpIi8+PC9zdmc+')] opacity-30"></div>
+        
+        <!-- Abstract Geometry Decoration -->
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-burgundy rounded-full blur-[100px] opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900 rounded-full blur-[120px] opacity-10"></div>
+
         <div class="text-center z-10 px-4">
-            <h1 class="text-6xl md:text-8xl font-bold mb-4 fade-in-up tracking-tight text-white">
+            <div class="inline-block mb-4 fade-in-up">
+                <span class="engine-badge text-white text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase">
+                    Stylized Lighting Engine v1.2
+                </span>
+            </div>
+            <h1 class="text-7xl md:text-9xl font-bold mb-2 fade-in-up delay-100 tracking-tighter text-white leading-none">
                 <span class="text-burgundy">ark</span>Toon
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 fade-in-up delay-100 max-w-2xl mx-auto">
-                軽量・直感・美しさ。<br>
-                VRChatアバターのために洗練された、<br>
-                「ちょうどいい」トゥーンシェーダー。
+            <p class="text-lg md:text-2xl text-burgundy-light font-light tracking-[0.2em] mb-8 fade-in-up delay-100 uppercase">
+                Hybrid NPR Rendering
             </p>
-            <div class="fade-in-up delay-200">
+            
+            <p class="text-lg md:text-xl text-gray-400 mb-10 fade-in-up delay-200 max-w-3xl mx-auto leading-relaxed">
+                単なるトゥーンシェーダーではありません。<br>
+                <strong class="text-white">「情報量の多いリッチなイラスト表現」</strong>をリアルタイム演算で実現する、<br>
+                次世代のスタイライズド・ライティング・エンジン。
+            </p>
+            
+            <div class="fade-in-up delay-300 flex flex-col md:flex-row gap-4 justify-center">
                 <a href="vcc://vpm/addRepo?url=https://arika-tune.github.io/arkToon_index/index.json" 
-                   class="group bg-burgundy hover:bg-burgundy-light text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-burgundy/30 inline-flex items-center min-w-[200px] justify-center">
+                   class="group bg-burgundy hover:bg-burgundy-light text-white px-8 py-3 rounded-md font-bold transition shadow-[0_0_20px_rgba(128,0,32,0.4)] inline-flex items-center justify-center border border-burgundy-light">
                     <span class="mr-2 group-hover:rotate-90 transition-transform duration-300">
                         <i class="fa-solid fa-plus"></i>
                     </span>
                     VCCに追加
                 </a>
 
-                <!-- Manual Button -->
-                <a href="#manual" class="bg-burgundy hover:bg-burgundy-light text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-burgundy/30 inline-flex items-center">
-                    <i class="fa-solid fa-book-open mr-2"></i> マニュアルを見る
+                <a href="#comparison" class="bg-transparent hover:bg-white/5 text-gray-300 px-8 py-3 rounded-md font-bold transition border border-gray-700 inline-flex items-center justify-center">
+                    <i class="fa-solid fa-magnifying-glass-chart mr-2"></i> 技術的な違いを見る
                 </a>
             </div>
         </div>
         
-        <!-- Animated Elements -->
-        <div class="absolute bottom-10 animate-bounce text-burgundy-light">
-            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        <div class="absolute bottom-10 animate-bounce text-gray-600">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-dark-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 text-burgundy-light"><i class="fa-solid fa-circle-info mr-2"></i>arkToonとは？</h2>
-                <p class="text-gray-400">シンプルさを犠牲にせず、表現力を最大化する。</p>
+    <!-- Engine Philosophy Section -->
+    <section id="about" class="py-24 bg-dark-bg relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white"><i class="fa-solid fa-microchip mr-3 text-burgundy"></i>なぜ「エンジン」なのか</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    従来のアニメ調シェーダーは「影の形を固定」していました。<br>
+                    arkToonは<span class="text-burgundy-light font-bold">独自のスタイライズドBRDF</span>を採用し、<br>
+                    光の物理挙動を「絵作り」のために再解釈して計算します。
+                </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="feature-card bg-dark-card p-8 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-burgundy/20 rounded-full flex items-center justify-center mx-auto mb-6 text-burgundy-light">
-                        <i class="fa-solid fa-feather text-3xl"></i>
+                <!-- Card 1 -->
+                <div class="feature-card p-8 rounded-lg relative group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-calculator text-8xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">驚きの軽量設計</h3>
-                    <p class="text-gray-400 text-sm">
-                        不要な機能を削ぎ落とし、VRChatでの負荷を最小限に。イベント会場での使用にも最適化されています。
+                    <div class="w-14 h-14 bg-gradient-to-br from-burgundy to-black border border-burgundy/30 rounded flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-wave-square text-xl text-burgundy-light"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">プロシージャル・フォールオフ</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        巨大なランプテクスチャに依存せず、数学的な関数（Function）で影の減衰を計算します。これにより、光源が近づいた際の「白飛び」を数理的に抑制し、常に情報量の多いグラデーションを維持します。
                     </p>
                 </div>
-                <div class="feature-card bg-dark-card p-8 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-burgundy/20 rounded-full flex items-center justify-center mx-auto mb-6 text-burgundy-light">
-                        <i class="fa-solid fa-palette text-3xl"></i>
+
+                <!-- Card 2 -->
+                <div class="feature-card p-8 rounded-lg relative group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-layer-group text-8xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">アニメ調に特化</h3>
-                    <p class="text-gray-400 text-sm">
-                        2段階の影、2つのリムライト、そして肌を綺麗に見せる「疑似SSS」を標準搭載。アニメのようなルックを簡単に作れます。
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-900 to-black border border-blue-800/30 rounded flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">リッチ・コンポジット</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        最新のRPG（原神やスターレイル等）に見られる「マルチレイヤー処理」を軽量に実装。
+                        <span class="text-blue-400">スペキュラ</span>、<span class="text-green-400">リムライト</span>、<span class="text-red-400">疑似SSS</span>を物理ベースに近い挙動で合成し、フィギュアのような実在感を生み出します。
                     </p>
                 </div>
-                <div class="feature-card bg-dark-card p-8 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-burgundy/20 rounded-full flex items-center justify-center mx-auto mb-6 text-burgundy-light">
-                        <i class="fa-solid fa-sliders text-3xl"></i>
+
+                <!-- Card 3 -->
+                <div class="feature-card p-8 rounded-lg relative group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-gauge-high text-8xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">直感的なGUI</h3>
-                    <p class="text-gray-400 text-sm">
-                        迷わないUI設計。日本語/英語の切り替えや、ワンクリックでの透過モード設定など、クリエイターに寄り添った設計です。
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent-gold/20 to-black border border-accent-gold/30 rounded flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-bolt text-xl text-accent-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">スマート・オプティマイズ</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        複雑な計算を行いつつも、テクスチャ参照数を極限まで削減。「計算はGPUにとって早いが、メモリ読み込みは遅い」という現代GPUの特性に最適化し、VRChatの大人数インスタンスでも高FPSを維持します。
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section id="comparison" class="py-20 bg-gradient-to-b from-dark-bg to-burgundy-dark/20">
+    <!-- Technical Comparison Section -->
+    <section id="comparison" class="py-24 bg-gradient-to-b from-dark-bg to-[#1a0505]">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 text-burgundy-light"><i class="fa-solid fa-scale-balanced mr-2"></i>他シェーダーとの比較</h2>
-                <p class="text-gray-400">なぜ今、arkToonを選ぶのか。</p>
+            <div class="flex flex-col md:flex-row items-end justify-between mb-12 border-b border-gray-800 pb-8">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2 text-white">
+                        <span class="text-burgundy">Engine</span> Comparison
+                    </h2>
+                    <p class="text-gray-400">既存の「トゥーンシェーダー」と何が違うのか</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="text-xs text-gray-500 bg-black/50 px-3 py-1 rounded border border-gray-800">
+                        ※優劣ではなく、描画設計思想の違いです
+                    </span>
+                </div>
             </div>
 
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-2xl">
                     <thead>
-                        <tr class="bg-burgundy text-white">
-                            <th class="p-4 md:p-6 text-lg">機能 / 特性</th>
-                            <th class="p-4 md:p-6 text-lg bg-burgundy-light border-l border-burgundy-dark font-bold relative">
-                                arkToon
-                                <span class="absolute top-0 right-0 bg-yellow-400 text-burgundy-dark text-xs font-bold px-2 py-1 rounded-bl">New!</span>
+                        <tr class="bg-[#1a1a1a] text-gray-400 text-sm uppercase tracking-wider">
+                            <th class="p-6 font-medium">Render Feature</th>
+                            <th class="p-6 font-bold text-white bg-burgundy/20 border-t-2 border-burgundy relative w-1/3">
+                                arkToon Engine
+                                <span class="absolute top-2 right-2 text-[10px] bg-burgundy text-white px-2 py-0.5 rounded">Stylized NPR</span>
                             </th>
-                            <th class="p-4 md:p-6 text-lg border-l border-burgundy-dark">lilToon</th>
-                            <th class="p-4 md:p-6 text-lg border-l border-burgundy-dark">Poiyomi Toon</th>
+                            <th class="p-6 border-t-2 border-gray-700 w-1/3">
+                                Standard Toon (lil/Poi)
+                                <span class="block text-[10px] normal-case opacity-50">Traditional Toon</span>
+                            </th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-300">
-                        <tr class="bg-dark-card border-b border-gray-700 hover:bg-gray-800 transition">
-                            <td class="p-4 font-bold">コンセプト</td>
-                            <td class="p-4 text-burgundy-light font-bold">軽量・アニメ特化・簡単</td>
-                            <td class="p-4">日本のスタンダード・万能</td>
-                            <td class="p-4">超高機能・リアル志向</td>
-                        </tr>
-                        <tr class="bg-dark-card border-b border-gray-700 hover:bg-gray-800 transition">
-                            <td class="p-4 font-bold">負荷 (Weight)</td>
-                            <td class="p-4 text-green-400"><i class="fa-solid fa-feather-pointed"></i> 非常に軽い</td>
-                            <td class="p-4">中〜高</td>
-                            <td class="p-4">高い (機能による)</td>
-                        </tr>
-                        <tr class="bg-dark-card border-b border-gray-700 hover:bg-gray-800 transition">
-                            <td class="p-4 font-bold">リムライト</td>
-                            <td class="p-4 font-bold">2つのリムを独立制御</td>
-                            <td class="p-4">高度な設定が可能</td>
-                            <td class="p-4">非常に詳細</td>
-                        </tr>
-                        <tr class="bg-dark-card border-b border-gray-700 hover:bg-gray-800 transition">
-                            <td class="p-4 font-bold">肌の表現 (SSS)</td>
-                            <td class="p-4 text-burgundy-light">専用の「疑似SSS」搭載</td>
-                            <td class="p-4">本格的な設定が必要</td>
-                            <td class="p-4">物理ベースのSSS</td>
-                        </tr>
-                        <tr class="bg-dark-card border-b border-gray-700 hover:bg-gray-800 transition">
-                            <td class="p-4 font-bold">マスク管理 (OptMap)</td>
-                            <td class="p-4">
-                                <span class="block text-xs text-gray-400">1枚に集約</span>
-                                <span class="text-green-400">G: 輪郭線</span> / <span class="text-blue-400">B: SSS</span>
+                    <tbody class="text-gray-300 divide-y divide-gray-800 bg-dark-card">
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">
+                                <strong class="block text-white mb-1">ライティング演算 (BRDF)</strong>
+                                <span class="text-xs text-gray-500">光の減衰計算方法</span>
                             </td>
-                            <td class="p-4">多機能マスク</td>
-                            <td class="p-4">個別の詳細マスク</td>
+                            <td class="p-6 bg-burgundy/5">
+                                <span class="text-burgundy-light font-bold"><i class="fa-solid fa-chart-line mr-2"></i>数理的フォールオフ</span><br>
+                                <span class="text-sm text-gray-400">物理挙動をベースに調整された関数で、リッチなグラデーションを自動生成。</span>
+                            </td>
+                            <td class="p-6">
+                                <span class="text-white font-bold"><i class="fa-solid fa-image mr-2"></i>ランプテクスチャ参照</span><br>
+                                <span class="text-sm text-gray-500">画像の色の通りに影を落とす。完全なアニメ塗りに適する。</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">
+                                <strong class="block text-white mb-1">目指すビジュアル</strong>
+                                <span class="text-xs text-gray-500">Target Aesthetics</span>
+                            </td>
+                            <td class="p-6 bg-burgundy/5">
+                                <span class="text-white font-bold">現代RPG・イラスト調</span><br>
+                                <span class="text-sm text-gray-400">原神、スタレ、ブルアカ等の「情報量の多い」3Dルック。</span>
+                            </td>
+                            <td class="p-6">
+                                <span class="text-white font-bold">セルアニメ・TVアニメ調</span><br>
+                                <span class="text-sm text-gray-500">プリキュア、アイカツ等の「パキッとした」ルック。</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">
+                                <strong class="block text-white mb-1">ハイライト (Specular)</strong>
+                                <span class="text-xs text-gray-500">Anti-Glare Logic</span>
+                            </td>
+                            <td class="p-6 bg-burgundy/5">
+                                <span class="text-burgundy-light font-bold">Smart Hi-Cut Filter</span><br>
+                                <span class="text-sm text-gray-400">ブルーム等で光源が強すぎても、色相を維持し白飛びを防ぐロジックを内蔵。</span>
+                            </td>
+                            <td class="p-6">
+                                <span class="text-white font-bold">Standard Additive</span><br>
+                                <span class="text-sm text-gray-500">単純加算。強い光で色が飛びやすいが、制御はシンプル。</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">
+                                <strong class="block text-white mb-1">テクスチャ管理</strong>
+                                <span class="text-xs text-gray-500">Optimization Strategy</span>
+                            </td>
+                            <td class="p-6 bg-burgundy/5">
+                                <span class="text-white font-bold">OptMap (R/G/B) 集約</span><br>
+                                <span class="text-sm text-gray-400">1枚の画像で「影・線・SSS」を制御。VRAM使用量を削減。</span>
+                            </td>
+                            <td class="p-6">
+                                <span class="text-white font-bold">個別マスクマップ</span><br>
+                                <span class="text-sm text-gray-500">機能ごとにテクスチャを割り当て。自由度は高いが容量が増えがち。</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="mt-8 p-6 bg-dark-card border-l-4 border-burgundy rounded shadow-lg">
-                <h4 class="font-bold text-white mb-2"><i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>arkToonを選ぶメリット</h4>
-                <p class="text-sm text-gray-400">
-                    lilToonやPoiyomiは素晴らしいシェーダーですが、設定項目が多く初心者には難しい場合があります。<br>
-                    <strong>arkToon</strong>は、「アバターを可愛く見せるために最低限必要な機能」を厳選し、
-                    <strong>「1st/2ndシェード」「ダブルリムライト」「簡易SSS」</strong>などを迷わず設定できるように設計されています。
-                    特に「OptMap」を使ったマスク管理は、テクスチャ枚数を減らし、アバターの容量削減に貢献します。
-                </p>
+
+            <div class="mt-10 grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-900/50 p-6 rounded border-l-4 border-gray-600">
+                    <h4 class="font-bold text-white mb-2">Traditional Toon (lilToon / Poiyomi)</h4>
+                    <p class="text-sm text-gray-400">
+                        「設定した通りの色を出す」ことに特化しています。アニメの作画を完全に再現したい場合や、テクスチャで影を完全に書き込みたい場合はこちらが適しています。
+                    </p>
+                </div>
+                <div class="bg-burgundy/10 p-6 rounded border-l-4 border-burgundy">
+                    <h4 class="font-bold text-white mb-2">arkToon (Stylized Engine)</h4>
+                    <p class="text-sm text-gray-400">
+                        「環境に合わせてイイ感じに見せる」ことに特化しています。ワールドの光の影響を受けつつ、リッチな質感や空気感を出したい場合、あるいはテクスチャ描画コストを下げたい場合に最強の選択肢です。
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Manual Section -->
-    <section id="manual" class="py-20 bg-dark-bg">
+    <!-- Manual Section (Content Preserved, Styling Unified) -->
+    <section id="manual" class="py-24 bg-dark-bg">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 text-burgundy-light"><i class="fa-solid fa-sliders mr-2"></i>機能マニュアル</h2>
-                <p class="text-gray-400">各パラメーターの詳細解説です。</p>
+                <h2 class="text-3xl font-bold mb-4 text-white"><i class="fa-solid fa-book-open mr-2 text-gray-500"></i>機能マニュアル</h2>
+                <p class="text-gray-500 text-sm">パラメーター詳細解説</p>
             </div>
 
             <!-- Tabs Navigation -->
             <div class="flex flex-wrap justify-center gap-2 mb-8">
-                <button onclick="switchTab('base')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition active border border-gray-700" data-tab="base">基本 (Base)</button>
-                <button onclick="switchTab('shadow')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="shadow">影 (Shadow)</button>
-                <button onclick="switchTab('rim')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="rim">リムライト (Rim)</button>
-                <button onclick="switchTab('spec')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="spec">反射/SSS (Spec/SSS)</button>
-                <button onclick="switchTab('outline')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="outline">輪郭線 (Outline)</button>
-                <button onclick="switchTab('overlay')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="overlay">近接影 (Overlay)</button>
-                <button onclick="switchTab('other')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700" data-tab="other">その他 (Other)</button>
+                <button onclick="switchTab('base')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition active border border-gray-700 text-sm" data-tab="base">基本 (Base)</button>
+                <button onclick="switchTab('shadow')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700 text-sm" data-tab="shadow">影 (Shadow)</button>
+                <button onclick="switchTab('rim')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700 text-sm" data-tab="rim">リムライト (Rim)</button>
+                <button onclick="switchTab('spec')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700 text-sm" data-tab="spec">反射/SSS (Spec/SSS)</button>
+                <button onclick="switchTab('outline')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700 text-sm" data-tab="outline">輪郭線 (Outline)</button>
+                <button onclick="switchTab('overlay')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700 text-sm" data-tab="overlay">近接影 (Overlay)</button>
+                <button onclick="switchTab('other')" class="tab-btn bg-dark-card hover:bg-burgundy text-white px-4 py-2 rounded transition border border-gray-700 text-sm" data-tab="other">その他 (Other)</button>
             </div>
 
             <!-- Tab Contents -->
@@ -315,7 +398,7 @@
                         <div class="group">
                             <h4 class="text-lg font-bold text-white mb-1">Normal Map</h4>
                             <p class="text-gray-400 text-sm">法線マップを設定します。<br>
-                            <code class="bg-gray-800 px-1 rounded">Is_NormalMapToBase</code>をONにすると、法線の凹凸がシェーディング（影の形）にも影響します。</p>
+                            <code class="bg-gray-800 px-1 rounded text-burgundy-light">Is_NormalMapToBase</code>をONにすると、法線の凹凸がシェーディング（影の形）にも影響します。リッチな表現には必須です。</p>
                         </div>
                         <div class="group">
                             <h4 class="text-lg font-bold text-white mb-1">Cull Mode</h4>
@@ -327,7 +410,7 @@
                 <!-- Shadow Tab -->
                 <div id="shadow" class="tab-content">
                     <h3 class="text-2xl font-bold text-burgundy-light mb-6 border-b border-gray-700 pb-2">影設定 (Shadow)</h3>
-                    <p class="mb-4 text-gray-400">arkToonは「1段目の影」と「2段目の影（より暗い影）」を個別に設定できます。</p>
+                    <p class="mb-4 text-gray-400">arkToonは「1段目の影」と「2段目の影（より暗い影）」を、ランプテクスチャではなく<strong>数値計算（Step/Feather）</strong>で生成します。</p>
                     
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
@@ -343,7 +426,7 @@
                                 </li>
                                 <li>
                                     <span class="block text-burgundy-light font-mono text-sm">Step / Feather</span>
-                                    <span class="text-gray-400 text-sm">影が入る境界線の位置と、そのぼかし具合。</span>
+                                    <span class="text-gray-400 text-sm">影が入る境界線の位置と、そのぼかし具合。Featherを上げると柔らかい印象になります。</span>
                                 </li>
                             </ul>
                         </div>
@@ -355,7 +438,7 @@
                                     <span class="text-gray-400 text-sm">さらに光が当たらない部分の色。</span>
                                 </li>
                                 <li>
-                                    <span class="block text-white font-bold text-xs bg-burgundy/50 inline-block px-2 py-1 rounded mb-1">仕様</span>
+                                    <span class="block text-white font-bold text-xs bg-burgundy/50 inline-block px-2 py-1 rounded mb-1">Auto Calculation</span>
                                     <span class="text-gray-400 text-sm block">
                                         2段目の影用テクスチャスロットはありません。1st ShadeMapが空の場合は自動計算され、設定されている場合はそのマップが流用されます。
                                     </span>
@@ -400,7 +483,8 @@
                         <p class="text-gray-400 text-sm mb-2">髪の毛のハイライトや金属光沢などに使用します。</p>
                         <ul class="text-sm text-gray-400 space-y-2 pl-4 border-l-2 border-burgundy">
                             <li><strong>Specular Map:</strong> ハイライトの強さと色を指定（RGB）。</li>
-                            <li><strong>TweakSpecularOnShadow:</strong> 「影の中にあるハイライト」を消す強さを調整できます。アニメ調では影の中のハイライトは消すのが一般的です。</li>
+                            <li><strong>TweakSpecularOnShadow:</strong> 「影の中にあるハイライト」を消す強さを調整できます。</li>
+                            <li><strong>Blend Mode:</strong> <span class="text-accent-gold">Replace</span>モードにすると、強い光が当たっても白飛びせず、指定した色でハイライトを描画します（Stylized仕様）。</li>
                         </ul>
                     </div>
 
@@ -440,7 +524,7 @@
                             <ul class="space-y-2 text-sm text-gray-400">
                                 <li>
                                     <span class="text-green-400 font-bold">マスク (OptMap Green)</span><br>
-                                    <span class="text-xs">Base OptMapの <span class="text-green-400 font-bold">Green (緑) チャンネル</span> で太さを制御できます（黒=線なし、白=最大）。口の中や髪の毛先など、線を消したい場所に使います。</span>
+                                    <span class="text-xs">Base OptMapの <span class="text-green-400 font-bold">Green (緑) チャンネル</span> で太さを制御できます（黒=線なし、白=最大）。</span>
                                 </li>
                                 <li>
                                     <span class="text-white font-bold">距離スケーリング</span><br>
@@ -466,16 +550,15 @@
                             <ul class="space-y-4 text-sm text-gray-400">
                                 <li>
                                     <span class="block text-burgundy-light font-bold mb-1">Color / Intensity</span>
-                                    オーバーレイする色と、その不透明度です。通常は黒色が使われますが、演出としてピンクや白などを設定することも可能です。
+                                    オーバーレイする色と、その不透明度です。通常は黒色が使われます。
                                 </li>
                                 <li>
                                     <span class="block text-burgundy-light font-bold mb-1">Range (影響範囲)</span>
-                                    カメラからどのくらいの距離で効果が出始めるかを設定します。<br>
-                                    値が小さいほど、顔が埋まる直前まで発動しません。
+                                    カメラからどのくらいの距離で効果が出始めるかを設定します。
                                 </li>
                                 <li>
                                     <span class="block text-burgundy-light font-bold mb-1">Falloff Curve</span>
-                                    減衰のカーブを「線形(Linear)」か「二次関数(Quadratic)」から選べます。Quadraticの方が急激に濃くなります。
+                                    減衰のカーブを「線形(Linear)」か「二次関数(Quadratic)」から選べます。
                                 </li>
                             </ul>
                         </div>
@@ -487,15 +570,14 @@
                                 <li>
                                     <span class="block text-burgundy-light font-bold mb-1">Backface Darkness</span>
                                     <span class="text-xs">
-                                        カメラがメッシュの<strong>内部</strong>に入り込んだ際、ポリゴンの裏面を描画して視界を遮る強さです。<br>
-                                        これを設定しておくと、アバターの中に入られた時に相手の視界を真っ暗にできます。
+                                        カメラがメッシュの<strong>内部</strong>に入り込んだ際、ポリゴンの裏面を描画して視界を遮る強さです。
                                     </span>
                                 </li>
                                 <li class="pt-2 border-t border-gray-700">
                                     <span class="block text-green-400 font-bold mb-1"><i class="fa-solid fa-shield-halved mr-1"></i>Prevent Near Clip (ニアクリップ防止)</span>
                                     <div class="bg-dark-bg p-3 rounded text-xs border border-green-900/50">
                                         頂点シェーダーでメッシュをカメラ奥（Far平面）へ押し込むことで、カメラのニアクリップ（視界がメッシュを貫通して中が見えてしまう現象）を物理的に防ぎます。<br>
-                                        <span class="text-yellow-500 mt-1 block">※VRモードでの没入感を高めるのに推奨されます。</span>
+                                        <span class="text-accent-gold mt-1 block">※VRモードでの没入感を高めるのに推奨されます。</span>
                                     </div>
                                 </li>
                             </ul>
@@ -511,7 +593,7 @@
                         <h4 class="text-lg font-bold text-white mb-2">MatCap (マットキャップ)</h4>
                         <p class="text-gray-400 text-sm">
                             球体反射マップを使用して、金属やサテン生地のような質感を安価に追加します。<br>
-                            <code class="bg-gray-800 text-xs px-1">Is_LightColor_MatCap</code>をONにすると、ワールドのライトカラーと影の影響を受け、暗闇でMatCapだけが浮くのを防げます。
+                            <code class="bg-gray-800 text-xs px-1 text-burgundy-light">Is_LightColor_MatCap</code>をONにすると、ワールドのライトカラーと影の影響を受け、暗闇でMatCapだけが浮くのを防げます。
                         </p>
                     </div>
 
@@ -533,7 +615,7 @@
     <footer class="bg-black py-8 border-t border-burgundy-dark">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-2xl font-bold text-burgundy mb-2">arkToon Project</h2>
-            <p class="text-gray-600 text-sm mb-4">Designed for VRChat Avatars by Ampion</p>
+            <p class="text-gray-600 text-sm mb-4">Stylized Lighting Engine for VRChat Avatars</p>
             <p class="text-gray-700 text-xs">
                 &copy; 2026 arkToon Project. All rights reserved.<br>
                 Licensed under MIT License.
