@@ -797,26 +797,7 @@
         </div>
     </footer>
 
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                if (btn.dataset.tab === tabId) {
-                    btn.classList.add('bg-burgundy', 'text-white');
-                    btn.classList.remove('bg-dark-card', 'text-gray-400');
-                } else {
-                    btn.classList.remove('bg-burgundy', 'text-white');
-                    btn.classList.add('bg-dark-card', 'text-gray-400');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            switchTab('base');
-        });
-    </script>
 </body>
 
 </html>
+
