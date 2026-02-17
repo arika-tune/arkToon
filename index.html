@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,8 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -37,7 +39,7 @@
             font-family: 'Noto Sans JP', sans-serif;
             overflow-x: hidden;
         }
-        
+
         /* Brand Styling */
         .brand-font {
             font-weight: 900;
@@ -50,12 +52,24 @@
             opacity: 0;
             transform: translateY(30px);
         }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
 
         @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-gradient {
@@ -65,7 +79,7 @@
         .grid-mask {
             background-size: 50px 50px;
             background-image: linear-gradient(to right, rgba(128, 0, 32, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(128, 0, 32, 0.05) 1px, transparent 1px);
+                linear-gradient(to bottom, rgba(128, 0, 32, 0.05) 1px, transparent 1px);
             mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
         }
 
@@ -80,30 +94,52 @@
             border: 1px solid #222;
             transition: all 0.3s ease;
         }
+
         .logic-card:hover {
             border-color: #800020;
             background: #181818;
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .tab-content { display: none; }
+        .tab-content {
+            display: none;
+        }
+
         .tab-content.active {
             display: block;
             animation: fadeIn 0.4s ease-out;
         }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #800020; }
-        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #800020;
+        }
+
         .glow-text {
             text-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -124,33 +160,36 @@
     <!-- Hero Section -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden hero-gradient">
         <div class="absolute inset-0 grid-mask"></div>
-        
+
         <div class="text-center z-10 px-4">
-            <p class="text-burgundy-light tracking-[0.4em] text-xs md:text-sm font-bold mb-6 fade-in-up uppercase">Stylized Lighting Engine</p>
-            
+            <p class="text-burgundy-light tracking-[0.4em] text-xs md:text-sm font-bold mb-6 fade-in-up uppercase">
+                Stylized Lighting Engine</p>
+
             <h1 class="text-7xl md:text-9xl brand-font mb-6 fade-in-up delay-100 text-white leading-none glow-text">
                 <span class="text-burgundy">ark</span>Toon
             </h1>
-            
+
             <p class="text-xl md:text-2xl font-light text-gray-300 mb-8 fade-in-up delay-200 tracking-tight">
                 その描写は、計算された「嘘」だ。
             </p>
 
-            <p class="text-sm md:text-base text-gray-500 mb-12 fade-in-up delay-300 max-w-2xl mx-auto leading-relaxed font-light">
+            <p
+                class="text-sm md:text-base text-gray-500 mb-12 fade-in-up delay-300 max-w-2xl mx-auto leading-relaxed font-light">
                 the logic of beauty. bridging the gap between anime and cg.<br>
             </p>
 
             <div class="fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="vcc://vpm/addRepo?url=https://arika-tune.github.io/arkToon_index/index.json" 
-                   class="bg-burgundy hover:bg-burgundy-light text-white px-10 py-4 font-bold transition shadow-xl shadow-burgundy/20 flex items-center justify-center">
+                <a href="vcc://vpm/addRepo?url=https://arika-tune.github.io/arkToon_index/index.json"
+                    class="bg-burgundy hover:bg-burgundy-light text-white px-10 py-4 font-bold transition shadow-xl shadow-burgundy/20 flex items-center justify-center">
                     <i class="fa-solid fa-plus mr-2"></i> VCCに追加
                 </a>
-                <a href="#manual" class="border border-white/20 hover:border-white text-white px-10 py-4 font-bold transition flex items-center justify-center">
+                <a href="#manual"
+                    class="border border-white/20 hover:border-white text-white px-10 py-4 font-bold transition flex items-center justify-center">
                     マニュアルを見る
                 </a>
             </div>
         </div>
-        
+
         <div class="absolute bottom-10 animate-bounce text-burgundy/40">
             <i class="fa-solid fa-chevron-down text-xl"></i>
         </div>
@@ -165,7 +204,7 @@
                     <h3 class="text-4xl font-bold text-white leading-tight">「ちょうどいい」を科学する、<br>3つのレンダリング哲学。</h3>
                 </div>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-px bg-white/5">
                 <!-- Logic 1 -->
                 <div class="logic-card p-10">
@@ -173,7 +212,7 @@
                     <h4 class="text-xl font-bold mb-4 text-white">Procedural Falloff</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         <span class="text-burgundy-light font-bold">汚くない影。</span><br>
-                        単純な閾値だけでなく、光の減衰をプロシージャルに計算。ローポリゴン特有の影のガタつきを滑らかに補間し、イラストの平面性と3Dの立体感を高次元で両立させます。
+                        単純な閾値（Ramp）だけでなく、光の減衰をプロシージャルに計算。ローポリゴン特有の影のガタつきを滑らかに補間し、イラストの平面性と3Dの立体感を高次元で両立させます。
                     </p>
                 </div>
                 <!-- Logic 2 -->
@@ -207,9 +246,10 @@
                     <h3 class="text-4xl font-bold text-white mb-8">なぜ今、arkToonなのか。</h3>
                     <p class="text-gray-400 leading-relaxed mb-10 font-light">
                         VRChatの世界において、arkToonが提供するのは<br>
-                        <strong class="text-white">「イラスト(2D)」と「物理ベース(3D)」の隙間を埋める、<br>現代的なアニメCG(2.5D)のライティング手法</strong>です。
+                        <strong
+                            class="text-white">「イラスト(2D)」と「物理ベース(3D)」の隙間を埋める、<br>現代的なアニメCG(2.5D)のライティング手法</strong>です。
                     </p>
-                    
+
                     <div class="space-y-8">
                         <div class="flex gap-6">
                             <div class="w-1 bg-gray-800"></div>
@@ -221,8 +261,10 @@
                         <div class="flex gap-6">
                             <div class="w-1 bg-burgundy shadow-[0_0_10px_#800020]"></div>
                             <div>
-                                <h4 class="text-burgundy-light font-black text-lg mb-1 uppercase tracking-tighter">arkToon (Cinematic)</h4>
-                                <p class="text-sm text-gray-300">劇場版クオリティの「情報の整理」。物理的な正しさよりも「画としての美しさ」を優先し、シネマティックな没入感を提供。</p>
+                                <h4 class="text-burgundy-light font-black text-lg mb-1 uppercase tracking-tighter">
+                                    arkToon (Cinematic)</h4>
+                                <p class="text-sm text-gray-300">
+                                    劇場版クオリティの「情報の整理」。物理的な正しさよりも「画としての美しさ」を優先し、シネマティックな没入感を提供。</p>
                             </div>
                         </div>
                         <div class="flex gap-6">
@@ -236,17 +278,23 @@
                 </div>
 
                 <!-- Graph -->
-                <div class="relative aspect-square max-w-[500px] mx-auto w-full border border-white/10 bg-dark-card rounded-2xl p-8 flex flex-col justify-center items-center shadow-2xl">
+                <div
+                    class="relative aspect-square max-w-[500px] mx-auto w-full border border-white/10 bg-dark-card rounded-2xl p-8 flex flex-col justify-center items-center shadow-2xl">
                     <div class="absolute inset-0 grid-mask opacity-50"></div>
                     <!-- Axis -->
                     <div class="absolute w-[80%] h-px bg-white/10 top-1/2"></div>
                     <div class="absolute h-[80%] w-px bg-white/10 left-1/2"></div>
-                    
+
                     <!-- Labels -->
-                    <span class="absolute top-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Realistic / Physics</span>
-                    <span class="absolute bottom-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Flat / Illustration</span>
-                    <span class="absolute left-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase -rotate-90">Light</span>
-                    <span class="absolute right-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase rotate-90">Heavy</span>
+                    <span
+                        class="absolute top-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Realistic
+                        / Physics</span>
+                    <span class="absolute bottom-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Flat
+                        / Illustration</span>
+                    <span
+                        class="absolute left-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase -rotate-90">Light</span>
+                    <span
+                        class="absolute right-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase rotate-90">Heavy</span>
 
                     <!-- Nodes -->
                     <div class="absolute bottom-1/4 left-1/3 text-center">
@@ -258,8 +306,11 @@
                         <span class="text-[10px] text-gray-500 font-bold">Poiyomi</span>
                     </div>
                     <div class="absolute top-[40%] left-[30%] text-center scale-125">
-                        <div class="w-4 h-4 bg-burgundy rounded-full mx-auto mb-2 shadow-[0_0_20px_#800020] border border-white/50"></div>
-                        <span class="text-[10px] text-white font-black tracking-tighter uppercase"><span class="text-burgundy">ark</span>Toon</span>
+                        <div
+                            class="w-4 h-4 bg-burgundy rounded-full mx-auto mb-2 shadow-[0_0_20px_#800020] border border-white/50">
+                        </div>
+                        <span class="text-[10px] text-white font-black tracking-tighter uppercase"><span
+                                class="text-burgundy">ark</span>Toon</span>
                         <div class="text-[8px] text-burgundy-light font-bold">Organized Lighting</div>
                     </div>
                 </div>
@@ -270,7 +321,9 @@
     <!-- Manual Section -->
     <section id="manual" class="py-24 bg-dark-bg relative">
         <!-- Background Elements -->
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-burgundy/5 to-transparent pointer-events-none"></div>
+        <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-burgundy/5 to-transparent pointer-events-none">
+        </div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/5 pb-8">
@@ -278,112 +331,220 @@
                     <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">User Manual</h2>
                     <h3 class="text-4xl font-bold text-white">機能ガイド & テクニック</h3>
                 </div>
-                <p class="text-gray-500 text-sm font-light mt-4 text-right">
-                    <span class="text-burgundy">v0.1.3 Updated</span><br>
+                <p class="text-gray-500 text-xs font-light mt-4 text-right">
                     項目をクリックして詳細を確認
                 </p>
             </div>
 
             <!-- Tab Navigation -->
-            <div class="flex flex-wrap gap-1 mb-8">
-                <button onclick="switchTab('base')" class="tab-btn flex-1 min-w-[100px] py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 data-[active=true]:text-white data-[active=true]:border-burgundy data-[active=true]:bg-white/5" data-tab="base">
-                    <i class="fa-solid fa-cube mb-2 block text-base opacity-50"></i> 基本設定
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-1 mb-8">
+                <button onclick="switchTab('target')"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    data-tab="target">
+                    <i
+                        class="fa-solid fa-bullseye mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    適用対象
                 </button>
-                <button onclick="switchTab('shadow')" class="tab-btn flex-1 min-w-[100px] py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 data-[active=true]:text-white data-[active=true]:border-burgundy data-[active=true]:bg-white/5" data-tab="shadow">
-                    <i class="fa-solid fa-moon mb-2 block text-base opacity-50"></i> 影と立体感
+                <button onclick="switchTab('base')"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    data-tab="base">
+                    <i class="fa-solid fa-cube mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    基本設定
                 </button>
-                <button onclick="switchTab('rim')" class="tab-btn flex-1 min-w-[100px] py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 data-[active=true]:text-white data-[active=true]:border-burgundy data-[active=true]:bg-white/5" data-tab="rim">
-                    <i class="fa-solid fa-sun mb-2 block text-base opacity-50"></i> リムライト
+                <button onclick="switchTab('shadow')"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    data-tab="shadow">
+                    <i class="fa-solid fa-moon mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    影・質感
                 </button>
-                <button onclick="switchTab('spec')" class="tab-btn flex-1 min-w-[100px] py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 data-[active=true]:text-white data-[active=true]:border-burgundy data-[active=true]:bg-white/5" data-tab="spec">
-                    <i class="fa-solid fa-wand-magic-sparkles mb-2 block text-base opacity-50"></i> ツヤ/肌
+                <button onclick="switchTab('spec')"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    data-tab="spec">
+                    <i
+                        class="fa-solid fa-wand-magic-sparkles mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    光沢・SSS
                 </button>
-                <button onclick="switchTab('outline')" class="tab-btn flex-1 min-w-[100px] py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 data-[active=true]:text-white data-[active=true]:border-burgundy data-[active=true]:bg-white/5" data-tab="outline">
-                    <i class="fa-solid fa-pen-nib mb-2 block text-base opacity-50"></i> 輪郭線
+                <button onclick="switchTab('outline')"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    data-tab="outline">
+                    <i
+                        class="fa-solid fa-pen-nib mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    輪郭線
                 </button>
-                <button onclick="switchTab('overlay')" class="tab-btn flex-1 min-w-[100px] py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 data-[active=true]:text-white data-[active=true]:border-burgundy data-[active=true]:bg-white/5" data-tab="overlay">
-                    <i class="fa-solid fa-eye-slash mb-2 block text-base opacity-50"></i> 貫通防止
+                <button onclick="switchTab('system')"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    data-tab="system">
+                    <i class="fa-solid fa-gear mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    特殊処理
                 </button>
             </div>
 
             <!-- Content Area -->
-            <div class="bg-dark-card border border-white/10 p-8 md:p-12 min-h-[500px] relative overflow-hidden">
-                
-                <!-- Tab: Base -->
-                <div id="base" class="tab-content active transition-opacity duration-300">
+            <div
+                class="bg-dark-card border border-white/10 p-6 md:p-12 min-h-[500px] relative overflow-hidden rounded-lg shadow-2xl">
+
+                <!-- Tab 0: Target (Applicability) -->
+                <div id="target" class="tab-content active transition-opacity duration-300">
+                    <h4 class="text-2xl font-bold text-white mb-6">推奨される使用箇所</h4>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                        arkToonは<strong class="text-white">「アバターとワールドの親和性」</strong>に特化したシェーダーです。<br>
+                        ギミックやパーティクルには適さない場合があります。
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div
+                            class="bg-gradient-to-br from-green-900/20 to-transparent p-6 rounded border border-green-900/30">
+                            <h5 class="text-green-400 font-bold mb-4 flex items-center"><i
+                                    class="fa-solid fa-circle-check mr-2"></i> 推奨 (Recommended)</h5>
+                            <ul class="space-y-4 text-sm text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-white font-bold min-w-[80px]">肌 (Skin)</span>
+                                    <span>疑似SSSによる柔らかい表現や、影色の微調整が可能です。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-white font-bold min-w-[80px]">髪 (Hair)</span>
+                                    <span>「天使の輪」のようなハイライト（Replace Specular）がきれいに描画されます。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-white font-bold min-w-[80px]">服 (Cloth)</span>
+                                    <span>布の質感や、裏面の塗りつぶし（Interior Fill）が有効です。</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="bg-gradient-to-br from-red-900/20 to-transparent p-6 rounded border border-red-900/30">
+                            <h5 class="text-red-400 font-bold mb-4 flex items-center"><i
+                                    class="fa-solid fa-circle-xmark mr-2"></i> 非推奨 (Not Recommended)</h5>
+                            <ul class="space-y-4 text-sm text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-white font-bold min-w-[100px]">パーティクル</span>
+                                    <span>加算合成やビルボード機能を持たないため、Particle System用シェーダーをご利用ください。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-white font-bold min-w-[100px]">ガラス・水</span>
+                                    <span>屈折や高度な透明度計算は行いません。簡易的な半透明なら可能ですが、専用シェーダーを推奨します。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-white font-bold min-w-[100px]">表情用板ポリ</span>
+                                    <span>単純な板ポリゴン（チークや涙など）は、影の影響を受けたりZファイティングを起こす可能性があるため、設定に注意が必要です。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 1: Base -->
+                <div id="base" class="tab-content hidden transition-opacity duration-300">
                     <div class="grid md:grid-cols-12 gap-12">
                         <div class="md:col-span-7 space-y-8">
                             <div>
-                                <h4 class="text-2xl font-bold text-white mb-2">まずはここから</h4>
+                                <h4 class="text-2xl font-bold text-white mb-2">基本設定</h4>
                                 <p class="text-gray-400 text-sm leading-relaxed">
-                                    モデルの基本的な描画方法を決定します。「プリセット」機能を使えば、面倒な数値調整を一瞬で終わらせることができます。
+                                    描画モードと基本テクスチャの設定です。<br>
+                                    まずはここを設定し、GUI上部の「プリセット」ボタンで大まかな設定を済ませるのが最短ルートです。
                                 </p>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="bg-white/5 p-5 rounded border border-white/5">
-                                    <h5 class="text-burgundy-light font-bold text-xs uppercase mb-2">Rendering Mode</h5>
-                                    <ul class="space-y-3 text-xs text-gray-400">
-                                        <li class="flex items-start"><i class="fa-solid fa-check text-burgundy mr-2 mt-1"></i><span><strong class="text-white">Opaque (不透明):</strong> 肌や服など、透けないパーツ用。最速。</span></li>
-                                        <li class="flex items-start"><i class="fa-solid fa-check text-burgundy mr-2 mt-1"></i><span><strong class="text-white">Cutout (切り抜き):</strong> メッシュ形状が複雑な衣装のレースなど。</span></li>
-                                        <li class="flex items-start"><i class="fa-solid fa-check text-burgundy mr-2 mt-1"></i><span><strong class="text-white">Transparent (半透明):</strong> 透けるヴェールや頬染めチークなど。</span></li>
-                                    </ul>
-                                </div>
-                                <div class="bg-white/5 p-5 rounded border border-white/5">
-                                    <h5 class="text-burgundy-light font-bold text-xs uppercase mb-2">便利機能: Presets</h5>
-                                    <p class="text-xs text-gray-400 mb-2">GUI上部のボタンで一発設定できます。</p>
-                                    <ul class="space-y-2 text-xs">
-                                        <li class="flex items-center justify-between bg-black/20 p-2 rounded">
-                                            <span class="text-white font-bold">Figure</span>
-                                            <span class="text-gray-500">スッキリとした現代風3DGC調</span>
-                                        </li>
-                                        <li class="flex items-center justify-between bg-black/20 p-2 rounded">
-                                            <span class="text-white font-bold">Deep Shadow</span>
-                                            <span class="text-gray-500">重厚感のある劇画調</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="bg-white/5 p-6 rounded border border-white/5">
+                                <h5 class="text-burgundy-light font-bold text-xs uppercase mb-3">Rendering Mode (描画モード)
+                                </h5>
+                                <ul class="space-y-4 text-xs text-gray-400">
+                                    <li class="grid grid-cols-[100px_1fr] items-center">
+                                        <strong
+                                            class="text-white bg-black/40 px-2 py-1 rounded text-center mr-2">Opaque</strong>
+                                        <span>不透明。最も高速で、影のトラブルが起きにくいモードです。肌や厚手の服に。</span>
+                                    </li>
+                                    <li class="grid grid-cols-[100px_1fr] items-center">
+                                        <strong
+                                            class="text-white bg-black/40 px-2 py-1 rounded text-center mr-2">Cutout</strong>
+                                        <span>切り抜き。アルファ値がしきい値(Cutoff)を下回ると透明になります。レースや金網に。</span>
+                                    </li>
+                                    <li class="grid grid-cols-[100px_1fr] items-center">
+                                        <strong
+                                            class="text-white bg-black/40 px-2 py-1 rounded text-center mr-2">Transparent</strong>
+                                        <span>半透明。ガラスや薄い布、頬染めチークなどに。描画順序の問題が出る場合があります。</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white/5 p-6 rounded border border-white/5">
+                                <h5 class="text-burgundy-light font-bold text-xs uppercase mb-3">Cull Mode (カリング)</h5>
+                                <p class="text-xs text-gray-400 mb-2">ポリゴンの裏面を描画するかどうかを決定します。</p>
+                                <ul class="space-y-2 text-xs">
+                                    <li class="flex items-center"><span class="w-16 font-bold text-white">Back</span> :
+                                        通常設定。裏面を描画しません（軽量）。</li>
+                                    <li class="flex items-center"><span class="w-16 font-bold text-white">Off</span> :
+                                        両面を描画します。スカートやマントなど、裏側が見えるパーツに使用します。</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-burgundy/5 p-8 rounded-xl border border-burgundy/20 flex flex-col justify-center">
-                            <h5 class="text-white font-bold mb-4 flex items-center"><i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i> Tip: 白飛び対策</h5>
+                        <div
+                            class="md:col-span-5 bg-burgundy/5 p-8 rounded-xl border border-burgundy/20 flex flex-col justify-center">
+                            <h5 class="text-white font-bold mb-4 flex items-center"><i
+                                    class="fa-solid fa-shield-cat text-burgundy-light mr-2"></i> Hi-Cut Filter</h5>
                             <p class="text-sm text-gray-300 leading-relaxed">
-                                arkToonには「Hi-Cut Filter」が搭載されています。
-                                ワールドのライトが眩しすぎる（HDR強度が1.0を超える）場合でも、自動的に色味を維持したまま輝度を抑え、顔が真っ白になるのを防ぎます。
-                                <br><br>
-                                <span class="text-xs text-gray-500">※設定不要で自動適用されます。</span>
+                                <strong class="text-white">白飛び防止機能 (常時ON)</strong><br><br>
+                                VRChatのワールドには、Bloom効果のために輝度が1.0を超える極端に明るいライトが設置されている場合があります。<br>
+                                arkToonは内部処理でこの「眩しすぎる光」を検知し、色味を保ったまま適正輝度(1.0)に抑え込みます。これにより、どんなワールドでも顔のテクスチャが白飛びして消えるのを防ぎます。
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab: Shadow -->
+                <!-- Tab 2: Shadow -->
                 <div id="shadow" class="tab-content hidden transition-opacity duration-300">
                     <div class="grid md:grid-cols-12 gap-12">
                         <div class="md:col-span-8">
-                            <h4 class="text-2xl font-bold text-white mb-6">アニメ塗りの命「2段階の影」</h4>
-                            <p class="text-gray-400 text-sm mb-8">
-                                arkToonでは「薄い影（1st）」と「濃い影（2nd）」を個別に設定できます。
-                                これにより、単調になりがちな3Dモデルの影に「イラストのような情報量」を与えます。
-                            </p>
-                            
-                            <div class="space-y-6">
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-gray-800 rounded flex items-center justify-center shrink-0 text-burgundy font-bold">1st</div>
-                                    <div>
-                                        <h5 class="text-white font-bold text-sm">1st Shade (基本の影)</h5>
-                                        <p class="text-gray-500 text-xs mt-1">
-                                            全体の立体感を担当します。<span class="text-burgundy-light">Feather(ぼかし)</span>を少し広め（0.3〜0.5）に取ると、ローポリゴンのカクつきを目立たなくさせる効果があります。
-                                        </p>
+                            <h4 class="text-2xl font-bold text-white mb-6">2段階の影とリムライト</h4>
+
+                            <div class="space-y-8">
+                                <!-- Shadows -->
+                                <div>
+                                    <h5
+                                        class="text-burgundy-light font-bold text-sm mb-3 border-b border-white/10 pb-2">
+                                        1st & 2nd Shade (影設定)</h5>
+                                    <p class="text-gray-400 text-xs mb-4">
+                                        「基本色」→「1段階目の影(薄い)」→「2段階目の影(濃い)」の3階調でアニメ塗りを表現します。
+                                        テクスチャを指定しない場合、<span class="text-white">BaseColorに乗算</span>されます。
+                                    </p>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-black/20 p-4 rounded">
+                                            <span class="text-white font-bold text-xs">Step (しきい値)</span>
+                                            <p class="text-[10px] text-gray-500 mt-1">
+                                                影になる範囲を決定します。数値が高いほど影になりやすくなります。
+                                            </p>
+                                        </div>
+                                        <div class="bg-black/20 p-4 rounded">
+                                            <span class="text-white font-bold text-xs">Feather (ぼかし)</span>
+                                            <p class="text-[10px] text-gray-500 mt-1">
+                                                影の境界をぼかします。ローポリゴンのカクつきを誤魔化すには、0.1〜0.3程度入れるのがコツです。
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-black rounded flex items-center justify-center shrink-0 text-gray-600 font-bold">2nd</div>
-                                    <div>
-                                        <h5 class="text-white font-bold text-sm">2nd Shade (最も暗い影)</h5>
-                                        <p class="text-gray-500 text-xs mt-1">
-                                            服の重なりや、光が全く届かない場所を担当します。範囲を狭く、境界をくっきりさせると画面が引き締まります。
-                                        </p>
+
+                                <!-- Rim Lights -->
+                                <div>
+                                    <h5
+                                        class="text-burgundy-light font-bold text-sm mb-3 border-b border-white/10 pb-2">
+                                        Rim Light (逆光表現)</h5>
+                                    <p class="text-gray-400 text-xs mb-4">
+                                        モデルの縁を光らせ、背景からキャラを際立たせます。2つのリムライトを同時に使用可能です。
+                                    </p>
+                                    <div class="bg-white/5 p-4 rounded border border-white/5">
+                                        <h6 class="text-white text-xs font-bold mb-2">Additive Mode (加算モード) の違い</h6>
+                                        <ul class="space-y-2 text-xs">
+                                            <li class="flex items-start">
+                                                <span class="text-burgundy-light font-bold min-w-[40px]">ON</span>
+                                                <span class="text-gray-400">光を加算して発光させます。金属や濡れた表現、強い日差しに。</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-blue-400 font-bold min-w-[40px]">OFF</span>
+                                                <span
+                                                    class="text-gray-400">色を合成(Lerp)します。白飛びさせず、指定した色（環境色など）を縁に乗せたい場合に。</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -391,201 +552,179 @@
 
                         <div class="md:col-span-4 space-y-4">
                             <div class="bg-dark-bg p-6 rounded border-l-4 border-blue-500">
-                                <h6 class="text-blue-400 font-bold text-xs uppercase mb-2">色選びのコツ</h6>
+                                <h6 class="text-blue-400 font-bold text-xs uppercase mb-2">Tip: 影の色選び</h6>
                                 <p class="text-gray-300 text-xs leading-relaxed">
-                                    影の色に「完全な黒」や「グレー」を使うと、モデルがくすんで見えてしまいます。
+                                    影の色設定を「グレー」にすると、画面がくすんで見えます。<br>
+                                    <span class="text-white">環境光や肌の色を少し混ぜた色</span>を設定すると、リッチな仕上がりになります。
                                     <br><br>
-                                    <span class="text-white font-bold">・肌の影</span> → 薄いピンクやオレンジ<br>
-                                    <span class="text-white font-bold">・白服の影</span> → 薄い青紫<br>
-                                    <br>
-                                    このように「彩度のある色」を設定すると、リッチな仕上がりになります。
+                                    <strong class="text-white">例：</strong><br>
+                                    肌の影 → 薄いピンク<br>
+                                    白シャツの影 → 薄い青紫
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab: Rim -->
-                <div id="rim" class="tab-content hidden transition-opacity duration-300">
-                    <div class="grid md:grid-cols-2 gap-12">
-                        <div>
-                            <h4 class="text-2xl font-bold text-white mb-4">背景からキャラを際立たせる</h4>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                                逆光表現（リムライト）です。arkToonは2つのリムライトを持てるため、
-                                「上からの強い光」と「下からの環境光の照り返し」を同時に表現できます。
-                            </p>
-
-                            <div class="bg-white/5 p-6 rounded border border-white/5 mb-6">
-                                <h5 class="text-white font-bold text-sm mb-3">Addtive Mode (加算) の使い分け</h5>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <span class="block text-xs font-bold text-burgundy-light mb-1">ON (発光)</span>
-                                        <p class="text-[10px] text-gray-400">金属、濡れた質感、強い日差し。色が重なり合って白く輝きます。</p>
-                                    </div>
-                                    <div>
-                                        <span class="block text-xs font-bold text-blue-400 mb-1">OFF (合成)</span>
-                                        <p class="text-[10px] text-gray-400">布、肌、柔らかい照り返し。白飛びせず、指定した色がそのまま乗ります。</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center">
-                            <div class="relative bg-black rounded-xl p-8 border border-white/10 shadow-2xl">
-                                <span class="absolute top-4 left-4 text-[10px] text-gray-500 uppercase tracking-widest">Recommended Setup</span>
-                                <div class="space-y-6 mt-4">
-                                    <div class="flex items-center">
-                                        <div class="w-8 h-8 rounded-full bg-white shadow-[0_0_15px_white] mr-4"></div>
-                                        <div>
-                                            <p class="text-white text-xs font-bold">1st Rim: Additive ON</p>
-                                            <p class="text-gray-500 text-[10px]">色: 白〜薄い黄色 / Power: 強め</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-8 h-8 rounded-full bg-blue-900 mr-4 border border-white/20"></div>
-                                        <div>
-                                            <p class="text-white text-xs font-bold">2nd Rim: Additive OFF</p>
-                                            <p class="text-gray-500 text-[10px]">色: 空の色や環境色 / Power: 弱め</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-6 text-[10px] text-gray-400 italic text-center">
-                                    この組み合わせで「空気感」のあるリッチな画になります。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Spec/SSS -->
+                <!-- Tab 3: Specular & SSS -->
                 <div id="spec" class="tab-content hidden transition-opacity duration-300">
                     <h4 class="text-2xl font-bold text-white mb-6">質感を「嘘」で演出する</h4>
-                    
+
                     <div class="grid md:grid-cols-2 gap-12">
                         <!-- Specular -->
                         <div class="space-y-4">
-                            <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">Specular (ハイライト)</h5>
+                            <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">Specular
+                                (ハイライト)</h5>
                             <p class="text-gray-400 text-xs">
-                                光の反射を描画します。<strong class="text-white">Blend Mode</strong>が強力です。
+                                光の反射を描画します。<strong class="text-white">Blend Mode</strong>でアニメ調とリアル調を切り替えられます。
                             </p>
                             <ul class="space-y-3 mt-4">
-                                <li class="bg-dark-bg p-3 rounded border border-white/5">
-                                    <span class="text-white text-xs font-bold block mb-1">Replace Mode (新規)</span>
+                                <li class="bg-dark-bg p-3 rounded border border-white/5 relative overflow-hidden">
+                                    <span class="text-white text-xs font-bold block mb-1">Replace Mode (置き換え)</span>
                                     <p class="text-gray-500 text-[10px]">
-                                        ハイライトの色で下地を「置き換え」ます。加算合成しないため白飛びせず、髪の天使の輪や、アニメ調のくっきりしたハイライトに最適です。
+                                        ハイライトの色で下地を完全に上書きします。加算合成しないため白飛びせず、髪の「天使の輪」やアニメ的な「くっきりしたツヤ」に最適です。
                                     </p>
                                 </li>
                                 <li class="bg-dark-bg p-3 rounded border border-white/5">
-                                    <span class="text-white text-xs font-bold block mb-1">Additive Mode (従来)</span>
+                                    <span class="text-white text-xs font-bold block mb-1">Additive Mode (加算)</span>
                                     <p class="text-gray-500 text-[10px]">
-                                        光を加算します。ラテックス、金属、宝石など、ギラギラ輝かせたいパーツに向いています。
+                                        光を加算します。ラテックス、金属、宝石など、強く輝かせたいパーツに向いています。
                                     </p>
                                 </li>
                             </ul>
+
+                            <div class="pt-4">
+                                <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">MatCap
+                                </h5>
+                                <p class="text-gray-400 text-xs mt-2">
+                                    カメラの角度に応じた固定反射マッピングです。金属光沢や、特定方向のハイライトを安価に追加できます。
+                                </p>
+                            </div>
                         </div>
 
                         <!-- SSS -->
                         <div class="space-y-4">
-                            <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">Fake SSS (疑似表面下散乱)</h5>
+                            <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">Fake SSS
+                                (疑似表面下散乱)</h5>
                             <p class="text-gray-400 text-xs">
                                 光と影の境界線（明暗の境目）にだけ、指定した色（赤みなど）を乗せる機能です。
                                 「光が皮膚を透過して赤く見える現象」を擬似的に再現し、肌の柔らかさを表現します。
                             </p>
-                            
+
                             <div class="bg-burgundy/10 p-4 rounded border border-burgundy/20 mt-4">
-                                <span class="text-burgundy-light text-[10px] font-bold uppercase"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 重要</span>
+                                <span class="text-burgundy-light text-[10px] font-bold uppercase"><i
+                                        class="fa-solid fa-triangle-exclamation mr-1"></i> 重要：マスク設定</span>
                                 <p class="text-gray-300 text-xs mt-1">
                                     全身にかかると服まで赤く光ってしまいます。<br>
-                                    必ず<strong class="text-white">OptMapのBlue(青)チャンネル</strong>で、肌の部分だけが白くなるようなマスクを指定してください。
+                                    必ず<strong class="text-white">Base OptMap</strong>の<strong
+                                        class="text-blue-400">Blue(青)チャンネル</strong>で、効果をかけたい場所（肌など）だけが白くなるようなマスクを指定してください。
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab: Outline -->
+                <!-- Tab 4: Outline -->
                 <div id="outline" class="tab-content hidden transition-opacity duration-300">
                     <div class="grid md:grid-cols-12 gap-12">
                         <div class="md:col-span-7">
                             <h4 class="text-2xl font-bold text-white mb-6">崩れない輪郭線</h4>
                             <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                                背面法線方式のアウトラインです。arkToonのアウトラインは、カメラとの距離に応じて太さを自動調整する機能を持っています。
+                                背面法線押し出し方式のアウトラインです。<br>
+                                距離による補正機能により、遠く離れてもモデルが黒く潰れるのを防ぎます。
                             </p>
-                            
+
                             <div class="space-y-4">
-                                <div>
-                                    <h5 class="text-white font-bold text-sm">Distance Scaling (距離補正)</h5>
-                                    <p class="text-gray-500 text-xs mt-1">
-                                        遠くに離れた時、輪郭線が太いままだとモデルが黒く潰れてしまいます。<br>
-                                        <span class="text-white">Farthest Distance</span>（最長距離）を設定することで、遠景では自動的に線を細くし、美しい見た目を維持します。
+                                <div class="bg-white/5 p-4 rounded">
+                                    <h5 class="text-white font-bold text-xs mb-1">Distance Scaling (距離補正)</h5>
+                                    <p class="text-gray-500 text-[10px]">
+                                        <span class="text-burgundy-light font-bold">Nearest / Farthest
+                                            Distance</span>で設定した距離に応じて、線の太さを自動調整します。
+                                        遠くに行くほど線を細く（あるいは0に）することで、VR空間での見栄えを維持します。
                                     </p>
                                 </div>
-                                <div>
-                                    <h5 class="text-white font-bold text-sm">Masking (マスク制御)</h5>
-                                    <p class="text-gray-500 text-xs mt-1">
-                                        口の中、瞳、髪の毛先など、線を出したくない場所は
-                                        <strong class="text-white">OptMapのGreen(緑)チャンネル</strong>を黒く塗ることで、部分的に線を消すことができます。
+                                <div class="bg-white/5 p-4 rounded">
+                                    <h5 class="text-white font-bold text-xs mb-1">Base OptMapによる制御</h5>
+                                    <p class="text-gray-500 text-[10px]">
+                                        <strong class="text-green-500">Green(緑)チャンネル</strong>がマスクとして機能します。<br>
+                                        口の中、瞳、髪の毛先など、線を出したくない場所は黒く塗ることで部分的に線を消せます。
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-white/5 p-8 rounded-xl flex flex-col items-center justify-center text-center">
-                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 text-dark-bg text-2xl font-black">
-                                <i class="fa-solid fa-expand"></i>
+                        <div
+                            class="md:col-span-5 bg-black/40 p-8 rounded-xl flex flex-col items-center justify-center text-center border border-white/5">
+                            <div
+                                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4 text-dark-bg text-xl font-black">
+                                <i class="fa-solid fa-paintbrush"></i>
                             </div>
-                            <h5 class="text-white font-bold mb-2">フィギュア風設定</h5>
-                            <p class="text-xs text-gray-400">
-                                最近のトレンドとして、あえて輪郭線を「0」にする、または極細にして色を肌馴染みの良い色（茶色など）にすると、フィギュアのような繊細な質感が出せます。
+                            <h5 class="text-white font-bold mb-2">フィギュア風の表現</h5>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                最近のトレンドとして、あえて輪郭線の幅を<strong class="text-white">0</strong>にする、
+                                または極細にして色を肌馴染みの良い色（茶色など）に設定すると、
+                                フィギュアのような繊細な質感が出せます。
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab: Overlay -->
-                <div id="overlay" class="tab-content hidden transition-opacity duration-300">
+                <!-- Tab 5: System / Overlay -->
+                <div id="system" class="tab-content hidden transition-opacity duration-300">
                     <div class="grid md:grid-cols-2 gap-12">
                         <div>
                             <h4 class="text-2xl font-bold text-white mb-4">VR接写の「お作法」</h4>
                             <p class="text-gray-400 text-sm leading-relaxed mb-6">
                                 VRChatなどのVR空間では、他プレイヤーが極端に近づく（撫でる、ハグする）ことがあります。
-                                その際、カメラがモデルを突き抜けて中身が見えてしまうのを防いだり、接近した際の違和感を低減するのが「Distance Shadow（近接影）」です。
+                                その際、カメラがモデルを突き抜けて中身が見えてしまうのを防ぐための機能群です。
                             </p>
-                            
+
                             <ul class="space-y-6">
-                                <li>
-                                    <div class="flex items-center mb-2">
-                                        <i class="fa-solid fa-shield-halved text-burgundy mr-2"></i>
-                                        <strong class="text-white text-sm">Prevent Near Clip (ニアクリップ防止)</strong>
-                                    </div>
-                                    <p class="text-xs text-gray-500 ml-6">
-                                        カメラが顔に埋まった瞬間、ポリゴンが消失してしまうのを防ぎます。
-                                    </p>
-                                </li>
-                                <li>
+                                <li class="bg-white/5 p-4 rounded">
                                     <div class="flex items-center mb-2">
                                         <i class="fa-solid fa-fill-drip text-burgundy mr-2"></i>
-                                        <strong class="text-white text-sm">Backface Fill (裏面の塗り)</strong>
+                                        <strong class="text-white text-sm">Interior Fill (裏面の塗りつぶし)</strong>
                                     </div>
-                                    <p class="text-xs text-gray-500 ml-6">
-                                        カメラが突き抜けてしまった場合でも、裏面を「メインテクスチャの平均色」で塗りつぶして表示します。
-                                        中身が透明な空洞に見えるホラー現象を回避できます。
+                                    <p class="text-xs text-gray-400 ml-6 mb-2">
+                                        カメラがメッシュを突き抜けた際、裏面を単色で塗りつぶして表示します。<br>
+                                        メインテクスチャの平均色と影色を混ぜ合わせ、「中が暗くなっている」ように見せます。
+                                    </p>
+                                    <div
+                                        class="ml-6 text-[10px] text-yellow-500 bg-yellow-900/20 p-2 rounded inline-block">
+                                        <i class="fa-solid fa-circle-exclamation mr-1"></i> 注意: テクスチャのMipMap生成(Generate
+                                        Mip Maps)を有効にしてください。
+                                    </div>
+                                </li>
+                                <li class="bg-white/5 p-4 rounded">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fa-solid fa-shield-halved text-burgundy mr-2"></i>
+                                        <strong class="text-white text-sm">Clip Cancel (ニアクリップ防止)</strong>
+                                    </div>
+                                    <p class="text-xs text-gray-400 ml-6">
+                                        カメラが顔に埋まった瞬間、ポリゴンが消失してしまうのを防ぎます。
+                                        頂点シェーダーで強制的にカメラの手前に頂点を押し戻します。
                                     </p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-gradient-to-br from-gray-800 to-black p-8 rounded border border-white/10 flex items-center justify-center">
-                            <div class="text-center">
-                                <p class="text-burgundy-light font-bold text-xs uppercase mb-4">Effect Visualization</p>
-                                <div class="inline-block relative">
-                                    <i class="fa-solid fa-camera text-4xl text-gray-600 absolute -left-12 top-1/2 -translate-y-1/2"></i>
-                                    <i class="fa-solid fa-user text-6xl text-white"></i>
-                                    <div class="absolute -right-4 -bottom-2 bg-burgundy text-white text-[10px] font-bold px-2 py-1 rounded">
-                                        Safe!
-                                    </div>
-                                </div>
-                                <p class="text-[10px] text-gray-500 mt-6 max-w-xs mx-auto">
-                                    カメラがモデル内部に入っても、裏面が表示され続けるため、視界がおかしくなりません。
-                                </p>
-                            </div>
+
+                        <div>
+                            <h4 class="text-2xl font-bold text-white mb-4">その他の機能</h4>
+                            <ul class="space-y-4">
+                                <li class="bg-white/5 p-4 rounded border-l-2 border-burgundy">
+                                    <h5 class="text-white text-sm font-bold">Distance Shadow (距離フェード影)</h5>
+                                    <p class="text-xs text-gray-400 mt-1">
+                                        カメラが近づいた時だけ、画面全体を暗くするオーバーレイを表示します。
+                                        「これ以上近づくと見えなくなる」ことを示唆し、めり込みの違和感を緩和します。
+                                    </p>
+                                </li>
+                                <li class="bg-white/5 p-4 rounded border-l-2 border-burgundy">
+                                    <h5 class="text-white text-sm font-bold">Emission (発光)</h5>
+                                    <p class="text-xs text-gray-400 mt-1">
+                                        暗い場所でも光るテクスチャを指定します。
+                                        HDRカラーに対応しており、Bloomエフェクトと連動して輝かせることが可能です。
+                                    </p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -602,7 +741,7 @@
                 content.classList.add('hidden');
                 // Small timeout to allow transition
                 setTimeout(() => {
-                    if(!content.classList.contains('active')) {
+                    if (!content.classList.contains('active')) {
                         content.style.opacity = '0';
                     }
                 }, 50);
@@ -612,28 +751,33 @@
             const selected = document.getElementById(tabId);
             selected.classList.remove('hidden');
             selected.classList.add('active', 'block');
-            
+
             // Force reflow
-            void selected.offsetWidth; 
-            
+            void selected.offsetWidth;
+
             selected.style.opacity = '1';
 
             // Update buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                if(btn.dataset.tab === tabId) {
+                if (btn.dataset.tab === tabId) {
                     btn.setAttribute('data-active', 'true');
-                    btn.classList.remove('text-gray-400');
+                    btn.classList.remove('text-gray-400', 'border-transparent');
                     btn.classList.add('text-white', 'border-burgundy', 'bg-white/5');
+                    // Icon specific
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.classList.remove('opacity-50');
                 } else {
                     btn.setAttribute('data-active', 'false');
-                    btn.classList.add('text-gray-400');
+                    btn.classList.add('text-gray-400', 'border-transparent');
                     btn.classList.remove('text-white', 'border-burgundy', 'bg-white/5');
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.classList.add('opacity-50');
                 }
             });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            switchTab('base');
+            switchTab('target');
         });
     </script>
 
@@ -643,11 +787,12 @@
             <h2 class="text-3xl brand-font text-white mb-2">
                 <span class="text-burgundy">ark</span>Toon
             </h2>
-            <p class="text-burgundy-light text-[10px] tracking-[0.4em] uppercase font-black mb-12">Stylized Lighting Engine</p>
-            
+            <p class="text-burgundy-light text-[10px] tracking-[0.4em] uppercase font-black mb-12">Stylized Lighting
+                Engine</p>
+
             <p class="text-gray-700 text-xs font-light max-w-sm mx-auto">
                 &copy; 2026 arkToon Project. All rights reserved.<br>
-                bridging the gap between anime and cg by Ampion.
+                bridging the gap between anime and cg.
             </p>
         </div>
     </footer>
@@ -658,7 +803,7 @@
             document.getElementById(tabId).classList.add('active');
 
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                if(btn.dataset.tab === tabId) {
+                if (btn.dataset.tab === tabId) {
                     btn.classList.add('bg-burgundy', 'text-white');
                     btn.classList.remove('bg-dark-card', 'text-gray-400');
                 } else {
@@ -673,6 +818,5 @@
         });
     </script>
 </body>
+
 </html>
-
-
