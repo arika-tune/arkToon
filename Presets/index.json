@@ -1,14 +1,14 @@
 {
     "presets": [
         {
-            "name": "Glossy Figure",
-            "url": "glossy_figure.json",
-            "description": "High contrast shading for figures."
+            "name": "Figure",
+            "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/figure.json",
+            "description": "Recommended values for figures."
         },
         {
-            "name": "Flat Style",
-            "url": "flat_style.json",
-            "description": "Minimal shading for anime look."
+            "name": "Deep Shadow",
+            "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/deep_shadow.json",
+            "description": "Deep shading effects."
         }
     ]
 }
