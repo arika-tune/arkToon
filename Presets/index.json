@@ -1,6 +1,11 @@
 {
     "presets": [
         {
+            "name": "Default",
+            "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/default.json",
+            "description": "Reset all settings to default values."
+        },
+        {
             "name": "Figure",
             "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/figure.json",
             "description": "Recommended values for figures."
