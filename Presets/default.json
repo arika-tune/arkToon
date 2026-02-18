@@ -1,0 +1,102 @@
+{
+    "name": "Standard (Default)",
+    "author": "ArkToon Project",
+    "description": "Reset all settings to default values.",
+    "properties": [
+        {
+            "name": "_RenderMode",
+            "type": "Float",
+            "value": "0"
+        },
+        {
+            "name": "_CullMode",
+            "type": "Float",
+            "value": "2"
+        },
+        {
+            "name": "_BaseColor",
+            "type": "Color",
+            "value": "1,1,1,1"
+        },
+        {
+            "name": "_Cutoff",
+            "type": "Float",
+            "value": "0.5"
+        },
+        {
+            "name": "_1st_ShadeColor",
+            "type": "Color",
+            "value": "1,1,1,1"
+        },
+        {
+            "name": "_1st_Shade_Step",
+            "type": "Float",
+            "value": "0.5"
+        },
+        {
+            "name": "_1st_Shade_Feather",
+            "type": "Float",
+            "value": "0.368"
+        },
+        {
+            "name": "_2nd_ShadeColor",
+            "type": "Color",
+            "value": "1,1,1,1"
+        },
+        {
+            "name": "_2nd_Shade_Step",
+            "type": "Float",
+            "value": "0.33"
+        },
+        {
+            "name": "_2nd_Shade_Feather",
+            "type": "Float",
+            "value": "0.307"
+        },
+        {
+            "name": "_BumpScale",
+            "type": "Float",
+            "value": "1.0"
+        },
+        {
+            "name": "_Is_NormalMapToBase",
+            "type": "Float",
+            "value": "1.0"
+        },
+        {
+            "name": "_Use_Specular",
+            "type": "Float",
+            "value": "0"
+        },
+        {
+            "name": "_RimLight",
+            "type": "Float",
+            "value": "0"
+        },
+        {
+            "name": "_MatCap",
+            "type": "Float",
+            "value": "0"
+        },
+        {
+            "name": "_Use_Emissive",
+            "type": "Float",
+            "value": "0"
+        },
+        {
+            "name": "_Outline_Width",
+            "type": "Float",
+            "value": "0"
+        },
+        {
+            "name": "_Use_DistanceShadow",
+            "type": "Float",
+            "value": "1"
+        },
+        {
+            "name": "_Use_InteriorFill",
+            "type": "Float",
+            "value": "1"
+        }
+    ]
+}
