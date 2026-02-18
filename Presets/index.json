@@ -1,0 +1,14 @@
+{
+    "presets": [
+        {
+            "name": "Glossy Figure",
+            "url": "glossy_figure.json",
+            "description": "High contrast shading for figures."
+        },
+        {
+            "name": "Flat Style",
+            "url": "flat_style.json",
+            "description": "Minimal shading for anime look."
+        }
+    ]
+}
