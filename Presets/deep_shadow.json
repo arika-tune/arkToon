@@ -1,0 +1,27 @@
+{
+    "name": "Deep Shadow",
+    "author": "ArkToon Project",
+    "description": "Presets for deep shading effects.",
+    "properties": [
+        {
+            "name": "_1st_Shade_Step",
+            "type": "Float",
+            "value": "0.81"
+        },
+        {
+            "name": "_1st_Shade_Feather",
+            "type": "Float",
+            "value": "0.55"
+        },
+        {
+            "name": "_2nd_Shade_Step",
+            "type": "Float",
+            "value": "0.5"
+        },
+        {
+            "name": "_2nd_Shade_Feather",
+            "type": "Float",
+            "value": "0.4"
+        }
+    ]
+}

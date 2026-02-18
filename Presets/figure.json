@@ -1,0 +1,32 @@
+{
+    "name": "Figure",
+    "author": "ArkToon Project",
+    "description": "Recommended values for figures (Shadows & Outline).",
+    "properties": [
+        {
+            "name": "_1st_Shade_Step",
+            "type": "Float",
+            "value": "0.61"
+        },
+        {
+            "name": "_1st_Shade_Feather",
+            "type": "Float",
+            "value": "0.547"
+        },
+        {
+            "name": "_2nd_Shade_Step",
+            "type": "Float",
+            "value": "0.528"
+        },
+        {
+            "name": "_2nd_Shade_Feather",
+            "type": "Float",
+            "value": "0.411"
+        },
+        {
+            "name": "_Outline_Width",
+            "type": "Float",
+            "value": "0.0"
+        }
+    ]
+}
