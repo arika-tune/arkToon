@@ -38,6 +38,10 @@
             color: #e0e0e0;
             font-family: 'Noto Sans JP', sans-serif;
             overflow-x: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         /* Brand Styling */
@@ -141,8 +145,17 @@
         /* Showcase Premium Effects */
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        /* Default reveal from bottom */
+        .reveal-on-scroll.reveal-up {
+            transform: translateY(40px);
+        }
+
+        /* Reveal from top */
+        .reveal-on-scroll.reveal-down {
+            transform: translateY(-40px);
         }
 
         .reveal-on-scroll.active {
@@ -152,7 +165,7 @@
 
         .showcase-card {
             box-shadow: 0 0 0 rgba(128, 0, 32, 0);
-            transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
         .showcase-card:hover {
@@ -170,6 +183,113 @@
 
         .showcase-card:hover .glass-overlay {
             transform: translateY(0);
+        }
+
+        /* Graph Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(128, 0, 32, 0.4), 0 0 0 rgba(128, 0, 32, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(128, 0, 32, 0.8), 0 0 20px rgba(128, 0, 32, 0.4);
+            }
+        }
+
+        @keyframes ring-expand {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes grid-drift {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 4s ease-in-out infinite 2s;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .grid-drift {
+            animation: grid-drift 20s linear infinite;
+        }
+
+        .graph-node {
+            transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+            /* Centered initially */
+            left: 50% !important;
+            top: 50% !important;
+        }
+
+        .graph-node.active {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Specific node placements override when active */
+        .graph-node.active.node-liltoon {
+            left: 33.33% !important;
+            bottom: 25% !important;
+            top: auto !important;
+        }
+
+        .graph-node.active.node-poiyomi {
+            right: 25% !important;
+            top: 25% !important;
+            left: auto !important;
+        }
+
+        .graph-node.active.node-arktoon {
+            left: 30% !important;
+            top: 40% !important;
+        }
+
+        .scan-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid rgba(128, 0, 32, 0.5);
+            border-radius: 9999px;
+            pointer-events: none;
+            animation: ring-expand 3s cubic-bezier(0.2, 0, 0.2, 1) infinite;
         }
     </style>
 </head>
@@ -238,32 +358,30 @@
                     <h3 class="text-4xl font-bold text-white">Visual Expression.</h3>
                 </div>
                 <p class="text-gray-500 text-xs font-light max-w-xs md:text-right">
-                    In-game captures demonstrating lighting and texture depth.
+                    In-game captures demonstrating.
                 </p>
             </div>
         </div>
 
         <div class="w-full px-4">
-            <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row-dense gap-4"
-                oncontextmenu="return false;">
+            <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row-dense gap-4 reveal-on-scroll"
+                oncontextmenu="return false;" data-stagger-children="showcase-card">
 
                 <!-- 1: Vertical -->
-                <div
-                    class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card opacity-0">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/1.png?raw=true" alt="Sapphirae"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae
+                            Sapphirae, Photography by arkToon Project(あんぴょん)
                         </span>
                     </div>
                 </div>
 
                 <!-- 2: Horizontal -->
-                <div
-                    class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card opacity-0">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/8.png?raw=true"
                         alt="Autumn Midnight"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
@@ -284,7 +402,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Dream: / 夢:
+                            Dream: / 夢:, Photography by arkToon Project(あんぴょん)
                         </span>
                     </div>
                 </div>
@@ -312,7 +430,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Ever After</span>
+                            Ever After, Photography by arkToon Project(あんぴょん)</span>
                     </div>
                 </div>
 
@@ -326,7 +444,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Autumn Midnight</span>
+                            Autumn Midnight, Photography by arkToon Project(あんぴょん)</span>
                     </div>
                 </div>
 
@@ -352,7 +470,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            SlashCo VR
+                            SlashCo VR, Photography by arkToon Project(あんぴょん)
                         </span>
                     </div>
                 </div>
@@ -366,7 +484,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            NOTHING</span>
+                            NOTHING, Photography by arkToon Project(あんぴょん)</span>
                     </div>
                 </div>
 
@@ -390,16 +508,16 @@
     <!-- Logic Section -->
     <section id="logic" class="py-24 bg-dark-bg">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 reveal-on-scroll">
                 <div class="max-w-2xl">
                     <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">Core Logic</h2>
                     <h3 class="text-4xl font-bold text-white leading-tight">「ちょうどいい」を科学する、<br>3つのレンダリング哲学。</h3>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-px bg-white/5">
+            <div class="grid md:grid-cols-3 gap-px bg-white/5 reveal-on-scroll" data-stagger-children="logic-card">
                 <!-- Logic 1 -->
-                <div class="logic-card p-10">
+                <div class="logic-card p-10 opacity-0">
                     <div class="text-burgundy font-black text-5xl mb-6 opacity-20">01</div>
                     <h4 class="text-xl font-bold mb-4 text-white">Procedural Falloff</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
@@ -408,7 +526,7 @@
                     </p>
                 </div>
                 <!-- Logic 2 -->
-                <div class="logic-card p-10">
+                <div class="logic-card p-10 opacity-0">
                     <div class="text-burgundy font-black text-5xl mb-6 opacity-20">02</div>
                     <h4 class="text-xl font-bold mb-4 text-white">Rich Composite</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
@@ -417,7 +535,7 @@
                     </p>
                 </div>
                 <!-- Logic 3 -->
-                <div class="logic-card p-10">
+                <div class="logic-card p-10 opacity-0">
                     <div class="text-burgundy font-black text-5xl mb-6 opacity-20">03</div>
                     <h4 class="text-xl font-bold mb-4 text-white">Smart Optimize</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
@@ -433,7 +551,7 @@
     <section id="positioning" class="py-24 bg-dark-bg border-t border-white/5">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
+                <div class="reveal-on-scroll">
                     <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">Positioning</h2>
                     <h3 class="text-4xl font-bold text-white mb-8">なぜ今、arkToonなのか。</h3>
                     <p class="text-gray-400 leading-relaxed mb-10 font-light">
@@ -442,15 +560,15 @@
                             class="text-white">「イラスト(2D)」と「物理ベース(3D)」の隙間を埋める、<br>現代的なアニメCG(2.5D)のライティング手法</strong>です。
                     </p>
 
-                    <div class="space-y-8">
-                        <div class="flex gap-6">
+                    <div class="space-y-8" data-stagger-children="flex">
+                        <div class="flex gap-6 opacity-0">
                             <div class="w-1 bg-gray-800"></div>
                             <div>
                                 <h4 class="text-white font-bold text-sm mb-1">lilToon (Standard)</h4>
                                 <p class="text-xs text-gray-500">万能。フラットで清潔感のある「イラスト調」を作るのに最も適したスタンダード。</p>
                             </div>
                         </div>
-                        <div class="flex gap-6">
+                        <div class="flex gap-6 opacity-0">
                             <div class="w-1 bg-burgundy shadow-[0_0_10px_#800020]"></div>
                             <div>
                                 <h4 class="text-burgundy-light font-black text-lg mb-1 uppercase tracking-tighter">
@@ -460,7 +578,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex gap-6">
+                        <div class="flex gap-6 opacity-0">
                             <div class="w-1 bg-gray-800"></div>
                             <div>
                                 <h4 class="text-white font-bold text-sm mb-1">Poiyomi (High-End)</h4>
@@ -471,9 +589,9 @@
                 </div>
 
                 <!-- Graph -->
-                <div
-                    class="relative aspect-square max-w-[500px] mx-auto w-full border border-white/10 bg-dark-card rounded-2xl p-8 flex flex-col justify-center items-center shadow-2xl">
-                    <div class="absolute inset-0 grid-mask opacity-50"></div>
+                <div class="relative aspect-square max-w-[500px] mx-auto w-full border border-white/10 bg-dark-card rounded-2xl p-8 flex flex-col justify-center items-center shadow-2xl overflow-hidden reveal-on-scroll"
+                    id="shader-graph">
+                    <div class="absolute inset-0 grid-mask opacity-50 grid-drift"></div>
                     <!-- Axis -->
                     <div class="absolute w-[80%] h-px bg-white/10 top-1/2"></div>
                     <div class="absolute h-[80%] w-px bg-white/10 left-1/2"></div>
@@ -490,19 +608,21 @@
                         class="absolute right-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase rotate-90">Heavy</span>
 
                     <!-- Nodes -->
-                    <div class="absolute bottom-1/4 left-1/3 text-center">
+                    <div class="absolute graph-node node-liltoon text-center animate-float">
                         <div class="w-3 h-3 bg-gray-600 rounded-full mx-auto mb-2"></div>
                         <span class="text-[10px] text-gray-500 font-bold">lilToon</span>
                     </div>
-                    <div class="absolute top-1/4 right-1/4 text-center">
+                    <div class="absolute graph-node node-poiyomi text-center animate-float-delayed">
                         <div class="w-3 h-3 bg-gray-600 rounded-full mx-auto mb-2"></div>
                         <span class="text-[10px] text-gray-500 font-bold">Poiyomi</span>
                     </div>
-                    <div class="absolute top-[40%] left-[30%] text-center scale-125">
+                    <div class="absolute graph-node node-arktoon text-center scale-125">
                         <div
-                            class="w-4 h-4 bg-burgundy rounded-full mx-auto mb-2 shadow-[0_0_20px_#800020] border border-white/50">
+                            class="relative w-4 h-4 bg-burgundy rounded-full mx-auto mb-2 animate-pulse-glow border border-white/50 z-10">
+                            <div class="scan-ring"></div>
+                            <div class="scan-ring" style="animation-delay: 1.5s"></div>
                         </div>
-                        <span class="text-[10px] text-white font-black tracking-tighter uppercase"><span
+                        <span class="text-[10px] text-white font-black tracking-tighter uppercase z-10"><span
                                 class="text-burgundy">ark</span>Toon</span>
                         <div class="text-[8px] text-burgundy-light font-bold">Organized Lighting</div>
                     </div>
@@ -519,7 +639,8 @@
         </div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/5 pb-8">
+            <div
+                class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/5 pb-8 reveal-on-scroll">
                 <div>
                     <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">User Manual</h2>
                     <h3 class="text-4xl font-bold text-white">機能ガイド & テクニック</h3>
@@ -530,7 +651,7 @@
             </div>
 
             <!-- Tab Navigation -->
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-1 mb-8">
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-1 mb-8 reveal-on-scroll">
                 <button onclick="switchTab('target')"
                     class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
                     data-tab="target">
@@ -972,23 +1093,73 @@
         document.addEventListener('DOMContentLoaded', () => {
             switchTab('target');
 
-            // Showcase Reveal Animation
+            // Global Directional Reveal
             const observerOptions = {
-                threshold: 0.1
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             };
 
+            let lastScrollY = window.scrollY;
+
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
+                const isScrollingDown = window.scrollY > lastScrollY;
+                lastScrollY = window.scrollY;
+
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('active');
-                        }, index * 100); // Stagger
-                        observer.unobserve(entry.target);
+                        // Determine direction and apply class if not already active
+                        if (!entry.target.classList.contains('active')) {
+                            entry.target.classList.remove('reveal-up', 'reveal-down');
+                            entry.target.classList.add(isScrollingDown ? 'reveal-up' : 'reveal-down');
+
+                            // Small delay for class application
+                            requestAnimationFrame(() => {
+                                entry.target.classList.add('active');
+
+                                // Stagger children
+                                const staggerSelector = entry.target.dataset.staggerChildren;
+                                if (staggerSelector) {
+                                    const children = entry.target.querySelectorAll(`.${staggerSelector}`);
+                                    children.forEach((child, childIndex) => {
+                                        setTimeout(() => {
+                                            child.classList.add('active');
+                                            child.classList.remove('opacity-0');
+                                        }, childIndex * 150);
+                                    });
+                                }
+
+                                // Special handling for shader graph
+                                if (entry.target.id === 'shader-graph') {
+                                    const nodes = entry.target.querySelectorAll('.graph-node');
+                                    nodes.forEach((node, nodeIndex) => {
+                                        setTimeout(() => node.classList.add('active'), 600 + (nodeIndex * 200));
+                                    });
+                                }
+                            });
+                        }
+                    } else {
+                        // Reset when leaving viewport area to allow re-triggering
+                        // But only if we've moved significantly to avoid flickering
+                        if (entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0) {
+                            entry.target.classList.remove('active');
+                            const staggerSelector = entry.target.dataset.staggerChildren;
+                            if (staggerSelector) {
+                                entry.target.querySelectorAll(`.${staggerSelector}`).forEach(child => {
+                                    child.classList.remove('active');
+                                    child.classList.add('opacity-0');
+                                });
+                            }
+                            if (entry.target.id === 'shader-graph') {
+                                entry.target.querySelectorAll('.graph-node').forEach(node => node.classList.remove('active'));
+                            }
+                        }
                     }
                 });
             }, observerOptions);
 
             document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                // Initialize with reveal-up by default
+                el.classList.add('reveal-up');
                 observer.observe(el);
             });
         });
@@ -1010,6 +1181,11 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('copy', (e) => e.preventDefault());
+        document.addEventListener('cut', (e) => e.preventDefault());
+        document.addEventListener('selectstart', (e) => e.preventDefault());
+    </script>
 </body>
 
 </html>
