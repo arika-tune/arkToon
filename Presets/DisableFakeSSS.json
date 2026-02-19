@@ -1,0 +1,12 @@
+{
+    "name": "Disable Fake SSS",
+    "author": "arkToon Project",
+    "description": "疑似SSSをオフにします。Turns off the Fake SSS feature.",
+    "properties": [
+        {
+            "name": "_Use_SSS",
+            "type": "Float",
+            "value": "0"
+        }
+    ]
+}
