@@ -96,7 +96,14 @@
         .logic-card {
             background: #121212;
             border: 1px solid #222;
-            transition: all 0.3s ease;
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .logic-card.active {
+            opacity: 1 !important;
+            transform: translateY(0);
         }
 
         .logic-card:hover {
@@ -166,11 +173,29 @@
         .showcase-card {
             box-shadow: 0 0 0 rgba(128, 0, 32, 0);
             transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .showcase-card.active {
+            opacity: 1 !important;
+            transform: translateY(0);
         }
 
         .showcase-card:hover {
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(128, 0, 32, 0.3);
             z-index: 10;
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .stagger-item.active {
+            opacity: 1 !important;
+            transform: translateY(0);
         }
 
         .glass-overlay {
@@ -368,7 +393,7 @@
                 oncontextmenu="return false;" data-stagger-children="showcase-card">
 
                 <!-- 1: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card opacity-0">
+                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/1.png?raw=true" alt="Sapphirae"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -381,7 +406,7 @@
                 </div>
 
                 <!-- 2: Horizontal -->
-                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card opacity-0">
+                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/8.png?raw=true"
                         alt="Autumn Midnight"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
@@ -394,8 +419,7 @@
                 </div>
 
                 <!-- 3: Vertical -->
-                <div
-                    class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/3.png?raw=true" alt="Dream"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -408,8 +432,7 @@
                 </div>
 
                 <!-- 4: Horizontal -->
-                <div
-                    class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/4.png?raw=true" alt="Iris"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -422,8 +445,7 @@
                 </div>
 
                 <!-- 5: Vertical -->
-                <div
-                    class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/5.png?raw=true" alt="Ever After"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -435,8 +457,7 @@
                 </div>
 
                 <!-- 6: Horizontal -->
-                <div
-                    class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/6.png?raw=true"
                         alt="Autumn Midnight"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
@@ -449,8 +470,7 @@
                 </div>
 
                 <!-- 7: Vertical -->
-                <div
-                    class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/7.png?raw=true" alt="Dream"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -462,8 +482,7 @@
                 </div>
 
                 <!-- 8: Horizontal -->
-                <div
-                    class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/2.png?raw=true" alt="SlashCo VR"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -477,7 +496,7 @@
 
                 <!-- 9: Horizontal -->
                 <div
-                    class="col-span-2 aspect-video relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                    class="col-span-2 aspect-video relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/9.png?raw=true" alt="Dream"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -490,7 +509,7 @@
 
                 <!-- 10: Horizontal -->
                 <div
-                    class="col-span-2 aspect-video relative group overflow-hidden bg-dark-card rounded-xl showcase-card reveal-on-scroll">
+                    class="col-span-2 aspect-video relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
                     <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/10.png?raw=true" alt="Dream"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
                         draggable="false" oncontextmenu="return false;">
@@ -517,7 +536,7 @@
 
             <div class="grid md:grid-cols-3 gap-px bg-white/5 reveal-on-scroll" data-stagger-children="logic-card">
                 <!-- Logic 1 -->
-                <div class="logic-card p-10 opacity-0">
+                <div class="logic-card p-10">
                     <div class="text-burgundy font-black text-5xl mb-6 opacity-20">01</div>
                     <h4 class="text-xl font-bold mb-4 text-white">Procedural Falloff</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
@@ -526,7 +545,7 @@
                     </p>
                 </div>
                 <!-- Logic 2 -->
-                <div class="logic-card p-10 opacity-0">
+                <div class="logic-card p-10">
                     <div class="text-burgundy font-black text-5xl mb-6 opacity-20">02</div>
                     <h4 class="text-xl font-bold mb-4 text-white">Rich Composite</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
@@ -535,7 +554,7 @@
                     </p>
                 </div>
                 <!-- Logic 3 -->
-                <div class="logic-card p-10 opacity-0">
+                <div class="logic-card p-10">
                     <div class="text-burgundy font-black text-5xl mb-6 opacity-20">03</div>
                     <h4 class="text-xl font-bold mb-4 text-white">Smart Optimize</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
