@@ -6,14 +6,19 @@
             "description": "Reset all settings to default values."
         },
         {
+            "name": "Turn Off SSS",
+            "url": "DisableFakeSSS.json",
+            "description": "疑似SSSをオフにします。Turns off the Fake SSS feature."
+        },
+        {
             "name": "Figure",
             "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/figure.json",
-            "description": "Recommended values for figures."
+            "description": "フィギュアのような質感にします。Recommended values for figures."
         },
         {
             "name": "Deep Shadow",
             "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/deep_shadow.json",
-            "description": "Deep shading effects."
+            "description": "深く影を落とします。Deep shading effects."
         }
     ]
 }
