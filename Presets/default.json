@@ -96,7 +96,8 @@
         {
             "name": "_Use_InteriorFill",
             "type": "Float",
-            "value": "1"
+            "value": "0"
         }
     ]
+
 }
