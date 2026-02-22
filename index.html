@@ -4,6 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Favicon.png">
+    <meta name="description"
+        content="arkToonは、Unityで高品質なアニメ調のライティングを実現する無料のシェーダーです。キャラクターの魅力を最大限に引き出す、プロフェッショナルなライティングを誰でも簡単に導入できます。">
+    <meta name="keywords"
+        content="Unity, Shader, Stylized, Anime, Lighting, PBR, Free, Open Source, arkToon, アニメ調, ライティング, シェーダー, 無料">
+    <meta name="author" content="Ampion">
+    <meta property="og:title" content="arkToon - Stylized Lighting Engine by Ampion">
+    <meta property="og:description" content="Unityで高品質なアニメ調のライティングを実現する無料のシェーダー。">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg">
+    <meta property="og:url" content="https://arika-tune.github.io/arkToon/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@arika_tune">
+    <meta name="twitter:title" content="arkToon - Stylized Lighting Engine by Ampion">
+    <meta name="twitter:description" content="Unityで高品質なアニメ調のライティングを実現する無料のシェーダー。">
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg">
+
+
     <title>arkToon - Stylized Lighting Engine by Ampion</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -33,7 +56,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Image Preloading for Showcase -->
     <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/1.png?raw=true">
     <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/2.png?raw=true">
     <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/3.png?raw=true">
@@ -47,6 +69,15 @@
     <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/11.png?raw=true">
     <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/12.png?raw=true">
     <style>
+        .hero-gradient {
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.9)),
+                url('https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         body {
             background-color: #0a0a0a;
             color: #e0e0e0;
@@ -467,8 +498,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae, Photography by watanabe__
-                        </span>
+                            Sapphirae, Photography by watanabe__</span>
                     </div>
                 </div>
 
@@ -546,7 +576,7 @@
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
                         <span
                             class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae, Photography by watanabe__
+                            Sapphirae, Photography by arkToon Project
                         </span>
                     </div>
                 </div>
@@ -1252,4 +1282,3 @@
 </body>
 
 </html>
-
