@@ -8,12 +8,12 @@
     <link rel="icon" type="image/png"
         href="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Favicon.png">
     <meta name="description"
-        content="arkToonは、Unityで高品質なアニメ調のライティングを実現する無料のシェーダーです。キャラクターの魅力を最大限に引き出す、プロフェッショナルなライティングを誰でも簡単に導入できます。">
+        content="arkToonは、Unityでアニメ調の表現と物理ベースのレンダリングを高度に融合した軽量なシェーダー。キャラクターの魅力を最大限に引き出す、プロフェッショナルなライティングを誰でも簡単に導入できます。">
     <meta name="keywords"
-        content="Unity, Shader, Stylized, Anime, Lighting, PBR, Free, Open Source, arkToon, アニメ調, ライティング, シェーダー, 無料">
+        content="Unity, Shader, Stylized, Anime, Lighting, PBR, 2.5D, 2.5DCG, 2.5Dアニメ, arkToon, アニメ調, ライティング, シェーダー, VRChat">
     <meta name="author" content="Ampion">
-    <meta property="og:title" content="arkToon - Stylized Lighting Engine by Ampion">
-    <meta property="og:description" content="Unityで高品質なアニメ調のライティングを実現する無料のシェーダー。">
+    <meta property="og:title" content="arkToon - Stylized Lighting Pipeline by Ampion">
+    <meta property="og:description" content="Unityで高品質な2.5DCG調の表現を実現するシェーダー。">
     <meta property="og:image"
         content="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg">
     <meta property="og:url" content="https://arika-tune.github.io/arkToon/">
@@ -21,13 +21,13 @@
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@arika_tune">
-    <meta name="twitter:title" content="arkToon - Stylized Lighting Engine by Ampion">
-    <meta name="twitter:description" content="Unityで高品質なアニメ調のライティングを実現する無料のシェーダー。">
+    <meta name="twitter:title" content="arkToon - Stylized Lighting Pipeline by Ampion">
+    <meta name="twitter:description" content="Unityで高品質な2.5DCG調の表現を実現するシェーダー。">
     <meta name="twitter:image"
         content="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg">
 
 
-    <title>arkToon - Stylized Lighting Engine by Ampion</title>
+    <title>arkToon - Stylized Lighting Pipeline by Ampion</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -387,7 +387,7 @@
 
         <div class="text-center z-10 px-4">
             <p class="text-burgundy-light tracking-[0.4em] text-xs md:text-sm font-bold mb-6 fade-in-up uppercase">
-                Stylized Lighting Engine</p>
+                Stylized Lighting Pipeline</p>
 
             <h1 class="text-7xl md:text-9xl brand-font mb-6 fade-in-up delay-100 text-white leading-none glow-text">
                 <span class="text-burgundy">ark</span>Toon
@@ -624,7 +624,8 @@
                     <h4 class="text-xl font-bold mb-4 text-white">Rich Composite</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         <span class="text-burgundy-light font-bold">コンポジット済みの質感。</span><br>
-                        ダブルリムライト、スペキュラ、疑似SSS。撮影処理（After Effects等）で行うようなレイヤー合成をシェーダー内で完結。VRChat上で「撮影済みの画」をリアルタイムに出力します。
+                        ダブルリムライト、スペキュラ、疑似SSS。撮影処理（After
+                        Effects等）で行うようなレイヤー合成をシェーダー内で完結。VRChat上で「撮影済みのような画」をリアルタイムに出力します。
                     </p>
                 </div>
                 <!-- Logic 3 -->
@@ -633,7 +634,7 @@
                     <h4 class="text-xl font-bold mb-4 text-white">Smart Optimize</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         <span class="text-burgundy-light font-bold">賢い軽量化。</span><br>
-                        「没入体験に寄与する計算」だけを厳選し、不要なレンダリングパスを徹底排除。リッチな質感を実現しながら、イベント会場でも耐えうる驚異的な軽量動作を維持しています。
+                        「普段使いにおいての没入体験に寄与する計算」だけを厳選、不要なレンダリングパスを徹底排除。リッチな質感を実現しながら、イベント会場でも耐えうる驚異的な軽量動作を維持しています。
                     </p>
                 </div>
             </div>
@@ -667,7 +668,7 @@
                                 <h4 class="text-burgundy-light font-black text-lg mb-1 uppercase tracking-tighter">
                                     arkToon (Cinematic)</h4>
                                 <p class="text-sm text-gray-300">
-                                    劇場版クオリティの「情報の整理」。独自のスタイライズBRDFロジックで物理的な正しさよりも「画としての美しさ」を優先し、ワールドとアバター間にシネマティックな没入感を提供。
+                                    劇場版クオリティの「情報整理」。独自のスタイライズBRDFロジックで物理的な正しさよりも「画としての美しさ」を優先し、ワールドとアバター間にシネマティックな没入感を提供。
                                 </p>
                             </div>
                         </div>
@@ -1265,7 +1266,7 @@
                 <span class="text-burgundy">ark</span>Toon
             </h2>
             <p class="text-burgundy-light text-[10px] tracking-[0.4em] uppercase font-black mb-12">Stylized Lighting
-                Engine</p>
+                Pipeline</p>
 
             <p class="text-gray-700 text-xs font-light max-w-sm mx-auto">
                 &copy; 2026 arkToon Project. All rights reserved.<br>
