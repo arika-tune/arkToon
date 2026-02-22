@@ -1232,8 +1232,6 @@
                             });
                         }
                     } else {
-                        // Reset when leaving viewport area to allow re-triggering
-                        // But only if we've moved significantly to avoid flickering
                         if (entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0) {
                             entry.target.classList.remove('active');
                             const staggerSelector = entry.target.dataset.staggerChildren;
