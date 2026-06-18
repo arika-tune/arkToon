@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png"
-        href="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Favicon.png">
+        href="https://raw.githubusercontent.com/arika-tune/arkShader/refs/heads/main/Assets/Favicon.png">
     <meta name="description"
-        content="arkToonは、Unityでアニメ調の表現と物理ベースのレンダリングを高度に融合した軽量なシェーダー。キャラクターの魅力を最大限に引き出す、プロフェッショナルなライティングを誰でも簡単に導入できます。">
+        content="arkShaderは、Unityでアニメ調の表現と物理ベースのレンダリングを高度に融合した軽量なシェーダー。キャラクターの魅力を最大限に引き出す、プロフェッショナルなライティングを誰でも簡単に導入できます。">
     <meta name="keywords"
-        content="Unity, Shader, Stylized, Anime, Lighting, PBR, 2.5D, 2.5DCG, 2.5Dアニメ, arkToon, アニメ調, ライティング, シェーダー, VRChat">
+        content="Unity, Shader, Stylized, Anime, Lighting, PBR, 2.5D, 2.5DCG, 2.5Dアニメ, arkShader, アニメ調, ライティング, シェーダー, VRChat, アークシェーダー">
     <meta name="author" content="Ampion">
-    <meta property="og:title" content="arkToon - Stylized Lighting Engine by Ampion">
-    <meta property="og:description" content="Unityで高品質な2.5DCG調の表現を実現するシェーダー。">
+    <meta property="og:title" content="arkShader - Stylized Lighting Engine by Ampion">
+    <meta property="og:description" content="Unityで高品質な2.5DCG調の表現を実現するプレミアムシェーダー。">
     <meta property="og:image"
-        content="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg">
-    <meta property="og:url" content="https://arika-tune.github.io/arkToon/">
+        content="https://raw.githubusercontent.com/arika-tune/arkShader/refs/heads/main/Assets/Header.jpeg">
+    <meta property="og:url" content="https://arika-tune.github.io/arkShader/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@arika_tune">
-    <meta name="twitter:title" content="arkToon - Stylized Lighting Engine by Ampion">
-    <meta name="twitter:description" content="Unityで高品質な2.5DCG調の表現を実現するシェーダー。">
+    <meta name="twitter:title" content="arkShader - Stylized Lighting Engine by Ampion">
+    <meta name="twitter:description" content="Unityで高品質な2.5DCG調の表現を実現するプレミアムシェーダー。">
     <meta name="twitter:image"
-        content="https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg">
+        content="https://raw.githubusercontent.com/arika-tune/arkShader/refs/heads/main/Assets/Header.jpeg">
 
-
-    <title>arkToon - Stylized Lighting Engine by Ampion</title>
+    <title>arkShader - Stylized Lighting Engine by Ampion</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -38,11 +39,12 @@
                             DEFAULT: '#800020',
                             light: '#a31b3e',
                             dark: '#4a0012',
+                            glow: 'rgba(128, 0, 32, 0.4)'
                         },
                         dark: {
-                            bg: '#0a0a0a',
-                            card: '#161616',
-                            surface: '#1e1e1e'
+                            bg: '#050505',
+                            card: '#111111',
+                            surface: '#181818'
                         }
                     },
                     fontFamily: {
@@ -52,35 +54,29 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/1.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/2.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/3.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/4.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/5.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/6.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/7.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/8.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/9.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/10.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/11.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/arika-tune/arkToon/blob/main/Assets/12.png?raw=true">
-    <style>
-        .hero-gradient {
-            background:
-                linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.9)),
-                url('https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Assets/Header.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    <!-- Preload Assets (Updated to arkShader) -->
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/1.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/2.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/3.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/4.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/5.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/6.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/7.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/8.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/9.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/10.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/11.png?raw=true">
+    <link rel="preload" as="image" href="https://github.com/arika-tune/arkShader/blob/main/Assets/12.png?raw=true">
 
+    <style>
         body {
-            background-color: #0a0a0a;
-            color: #e0e0e0;
+            background-color: #050505;
+            color: #e5e5e5;
             font-family: 'Noto Sans JP', sans-serif;
             overflow-x: hidden;
             user-select: none;
@@ -89,30 +85,27 @@
             -ms-user-select: none;
         }
 
-        /* Brand Styling */
+        .hero-gradient {
+            background: 
+                linear-gradient(to bottom, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.95) 100%),
+                radial-gradient(circle at 50% 40%, #2f000a 0%, #050505 80%);
+        }
+
         .brand-font {
             font-weight: 900;
             letter-spacing: -0.05em;
         }
 
-        /* Animations */
+        /* Smooth scroll animations */
         .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
         }
 
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
+        .delay-100 { animation-delay: 0.15s; }
+        .delay-200 { animation-delay: 0.3s; }
+        .delay-300 { animation-delay: 0.45s; }
 
         @keyframes fadeInUp {
             to {
@@ -121,27 +114,31 @@
             }
         }
 
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 50%, #3a000e 0%, #0a0a0a 100%);
-        }
-
         .grid-mask {
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, rgba(128, 0, 32, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(128, 0, 32, 0.05) 1px, transparent 1px);
-            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+            background-size: 60px 60px;
+            background-image: 
+                linear-gradient(to right, rgba(128, 0, 32, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 0, 32, 0.04) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
         }
 
         .nav-blur {
-            backdrop-filter: blur(12px);
-            background-color: rgba(10, 10, 10, 0.8);
-            border-bottom: 1px solid rgba(128, 0, 32, 0.2);
+            backdrop-filter: blur(16px);
+            background-color: rgba(5, 5, 5, 0.75);
+            border-bottom: 1px solid rgba(128, 0, 32, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid rgba(128, 0, 32, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
         .logic-card {
-            background: #121212;
-            border: 1px solid #222;
-            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            background: #0f0f0f;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
             transform: translateY(30px);
         }
@@ -152,10 +149,10 @@
         }
 
         .logic-card:hover {
-            border-color: #800020;
-            background: #181818;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(128, 0, 32, 0.6);
+            background: #161616;
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(128, 0, 32, 0.1);
         }
 
         .tab-content {
@@ -164,50 +161,49 @@
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.4s ease-out;
+            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Custom Scrollbar */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
-
         ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+            background: #050505;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #800020;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a31b3e;
         }
 
         .glow-text {
-            text-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
+            text-shadow: 0 0 20px rgba(128, 0, 32, 0.6);
         }
 
-        /* Showcase Premium Effects */
+        .glow-text-subtle {
+            text-shadow: 0 0 10px rgba(128, 0, 32, 0.3);
+        }
+
+        /* Reveal animations */
         .reveal-on-scroll {
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Default reveal from bottom */
         .reveal-on-scroll.reveal-up {
-            transform: translateY(40px);
+            transform: translateY(50px);
         }
 
-        /* Reveal from top */
         .reveal-on-scroll.reveal-down {
-            transform: translateY(-40px);
+            transform: translateY(-50px);
         }
 
         .reveal-on-scroll.active {
@@ -216,10 +212,10 @@
         }
 
         .showcase-card {
-            box-shadow: 0 0 0 rgba(128, 0, 32, 0);
-            transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
         }
 
         .showcase-card.active {
@@ -228,14 +224,15 @@
         }
 
         .showcase-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(128, 0, 32, 0.3);
-            z-index: 10;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(128, 0, 32, 0.4);
+            transform: translateY(-8px) scale(1.02);
+            z-index: 20;
         }
 
         .stagger-item {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .stagger-item.active {
@@ -244,85 +241,51 @@
         }
 
         .glass-overlay {
-            background: rgba(10, 10, 10, 0.4);
+            background: linear-gradient(to top, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.4) 100%);
             backdrop-filter: blur(8px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             transform: translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .showcase-card:hover .glass-overlay {
             transform: translateY(0);
         }
 
-        /* Graph Animations */
+        /* Floats & Pulses */
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
 
         @keyframes pulse-glow {
-
-            0%,
-            100% {
+            0%, 100% {
                 box-shadow: 0 0 20px rgba(128, 0, 32, 0.4), 0 0 0 rgba(128, 0, 32, 0);
             }
-
             50% {
-                box-shadow: 0 0 40px rgba(128, 0, 32, 0.8), 0 0 20px rgba(128, 0, 32, 0.4);
+                box-shadow: 0 0 45px rgba(128, 0, 32, 0.9), 0 0 25px rgba(128, 0, 32, 0.5);
             }
         }
 
         @keyframes ring-expand {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(2.5);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.8); opacity: 0; }
         }
 
         @keyframes grid-drift {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 50px 50px;
-            }
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
         }
 
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-            animation: float 4s ease-in-out infinite 2s;
-        }
-
-        .animate-pulse-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-
-        .grid-drift {
-            animation: grid-drift 20s linear infinite;
-        }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 5s ease-in-out infinite 2.5s; }
+        .animate-pulse-glow { animation: pulse-glow 3.5s ease-in-out infinite; }
+        .grid-drift { animation: grid-drift 25s linear infinite; }
 
         .graph-node {
-            transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0.5);
-            /* Centered initially */
+            transform: translate(-50%, -50%) scale(0.4);
             left: 50% !important;
             top: 50% !important;
         }
@@ -332,34 +295,36 @@
             transform: translate(0, 0) scale(1);
         }
 
-        /* Specific node placements override when active */
+        /* Active placements for Graph Nodes */
         .graph-node.active.node-liltoon {
-            left: 33.33% !important;
+            left: 20% !important;
             bottom: 25% !important;
             top: auto !important;
         }
 
         .graph-node.active.node-poiyomi {
-            right: 25% !important;
-            top: 25% !important;
+            right: 20% !important;
+            top: 20% !important;
             left: auto !important;
         }
 
-        .graph-node.active.node-arktoon {
-            left: 30% !important;
-            top: 40% !important;
+        .graph-node.active.node-arkshader {
+            left: 42% !important;
+            top: 45% !important;
         }
 
         .scan-ring {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 1px solid rgba(128, 0, 32, 0.5);
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid rgba(128, 0, 32, 0.6);
             border-radius: 9999px;
             pointer-events: none;
-            animation: ring-expand 3s cubic-bezier(0.2, 0, 0.2, 1) infinite;
+            animation: ring-expand 3.5s cubic-bezier(0.16, 0, 0.2, 1) infinite;
+        }
+
+        /* Image load safety gradient overlay */
+        .image-fallback-bg {
+            background: linear-gradient(135deg, #161616 0%, #29000a 100%);
         }
     </style>
 </head>
@@ -367,16 +332,21 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-blur">
+    <nav id="navbar" class="fixed w-full z-50 nav-blur">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl brand-font flex items-center text-white">
-                <i class="fa-solid fa-paintbrush mr-2 text-burgundy-light"></i>
-                <span class="text-burgundy">ark</span>Toon
+            <a href="#" class="text-2xl brand-font flex items-center text-white select-none">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2 text-burgundy-light"></i>
+                <span class="text-burgundy">ark</span>Shader
             </a>
             <div class="hidden md:flex space-x-10 text-xs font-bold tracking-widest uppercase">
-                <a href="#logic" class="text-gray-400 hover:text-white transition">Philosophy</a>
-                <a href="#positioning" class="text-gray-400 hover:text-white transition">Positioning</a>
-                <a href="#manual" class="text-gray-400 hover:text-white transition">Manual</a>
+                <a href="#logic" class="text-gray-400 hover:text-white transition duration-300">Philosophy</a>
+                <a href="#positioning" class="text-gray-400 hover:text-white transition duration-300">Positioning</a>
+                <a href="#manual" class="text-gray-400 hover:text-white transition duration-300">Manual</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/arika-tune/arkShader" target="_blank" class="text-gray-400 hover:text-white transition text-lg" title="GitHub Repository">
+                    <i class="fa-brands fa-github"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -385,212 +355,201 @@
     <header class="relative h-screen flex items-center justify-center overflow-hidden hero-gradient">
         <div class="absolute inset-0 grid-mask"></div>
 
-        <div class="text-center z-10 px-4">
-            <p class="text-burgundy-light tracking-[0.4em] text-xs md:text-sm font-bold mb-6 fade-in-up uppercase">
+        <div class="text-center z-10 px-4 max-w-4xl">
+            <p class="text-burgundy-light tracking-[0.5em] text-xs md:text-sm font-black mb-6 fade-in-up uppercase glow-text-subtle">
                 Stylized Lighting Engine</p>
 
-            <h1 class="text-7xl md:text-9xl brand-font mb-6 fade-in-up delay-100 text-white leading-none glow-text">
-                <span class="text-burgundy">ark</span>Toon
+            <h1 class="text-6xl md:text-9xl brand-font mb-6 fade-in-up delay-100 text-white leading-none glow-text">
+                <span class="text-burgundy">ark</span>Shader
             </h1>
 
-            <p class="text-xl md:text-2xl font-light text-gray-300 mb-8 fade-in-up delay-200 tracking-tight">
+            <p class="text-xl md:text-2xl font-light text-gray-200 mb-8 fade-in-up delay-200 tracking-wide">
                 その描写は、計算された「嘘」だ。
             </p>
 
-            <p
-                class="text-sm md:text-base text-gray-500 mb-12 fade-in-up delay-300 max-w-2xl mx-auto leading-relaxed font-light">
+            <p class="text-xs md:text-sm text-gray-400 mb-12 fade-in-up delay-300 max-w-2xl mx-auto leading-relaxed font-light">
                 the logic of beauty. bridging the gap between anime and cg.<br>
+                アニメ調の表現と物理ベースの質感を極限まで高解像度で融合する、新世代ライティングモジュール。
             </p>
 
-            <div class="fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="vcc://vpm/addRepo?url=https://arika-tune.github.io/arkToon_index/index.json"
-                    class="bg-burgundy hover:bg-burgundy-light text-white px-10 py-4 font-bold transition shadow-xl shadow-burgundy/20 flex items-center justify-center">
-                    <i class="fa-solid fa-plus mr-2"></i> VCCに追加
+            <div class="fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="vcc://vpm/addRepo?url=https://arika-tune.github.io/arkShader_index/index.json"
+                    class="w-full sm:w-auto bg-burgundy hover:bg-burgundy-light text-white px-10 py-4 font-bold transition duration-300 shadow-xl shadow-burgundy/30 flex items-center justify-center rounded-sm tracking-widest text-sm">
+                    <i class="fa-solid fa-plus mr-2 text-xs"></i> VCCに追加
                 </a>
                 <a href="#manual"
-                    class="border border-white/20 hover:border-white text-white px-10 py-4 font-bold transition flex items-center justify-center">
+                    class="w-full sm:w-auto border border-white/10 hover:border-white/40 hover:bg-white/5 text-white px-10 py-4 font-bold transition duration-300 flex items-center justify-center rounded-sm tracking-widest text-sm">
                     マニュアルを見る
                 </a>
             </div>
         </div>
 
-        <div class="absolute bottom-10 animate-bounce text-burgundy/40">
-            <i class="fa-solid fa-chevron-down text-xl"></i>
+        <div class="absolute bottom-10 animate-bounce text-burgundy/60">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
         </div>
     </header>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-24 bg-dark-bg border-b border-white/5">
-        <div class="container mx-auto px-6 mb-12">
-            <div class="flex flex-col md:flex-row justify-between items-end gap-4">
+    <section id="gallery" class="py-24 bg-dark-bg border-b border-white/5 relative">
+        <div class="container mx-auto px-6 mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
-                    <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">Showcase</h2>
-                    <h3 class="text-4xl font-bold text-white">Visual Expression.</h3>
+                    <h2 class="text-burgundy-light text-sm font-black tracking-widest uppercase mb-2">Showcase</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-white tracking-tight">Visual Expression.</h3>
                 </div>
-                <p class="text-gray-500 text-xs font-light max-w-xs md:text-right">
-                    In-game captures demonstrating.
+                <p class="text-gray-400 text-xs md:text-sm font-light max-w-md md:text-right leading-relaxed">
+                    arkShaderが描く、情感豊かな光と影の世界。<br>
+                    インゲームの限界を超えた、シネマティックな空気感をリアルタイムに描写します。
                 </p>
             </div>
         </div>
 
-        <div class="w-full px-4">
-            <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row-dense gap-4 reveal-on-scroll"
+        <div class="w-full px-6">
+            <!-- Stagger Gallery with Fallback Safety -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row-dense gap-6 reveal-on-scroll"
                 oncontextmenu="return false;" data-stagger-children="showcase-card">
 
                 <!-- 1: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/1.png?raw=true" alt="Sapphirae"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="row-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/1.png?raw=true" alt="Sapphirae"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Sapphirae')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Sapphirae, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 2: Horizontal -->
-                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/9.png?raw=true"
-                        alt="Autumn Midnight"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="col-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/9.png?raw=true" alt="Autumn Midnight"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Midnight Scene')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            NOTHING, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            NOTHING, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 3: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/3.png?raw=true" alt="Dream"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="row-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/3.png?raw=true" alt="Dream"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Dream')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Dream: / 夢:, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Dream: / 夢:, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 4: Horizontal -->
-                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/4.png?raw=true" alt="Iris"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="col-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/4.png?raw=true" alt="Iris"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Iris')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
                             PhotoBooth「Iris」_AmorCacao, Photography by アーヴェント・ヴァンピール
                         </span>
                     </div>
                 </div>
 
                 <!-- 5: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/11.png?raw=true" alt="Ever After"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="row-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/11.png?raw=true" alt="Ever After"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Ever After')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae, Photography by watanabe__</span>
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Sapphirae, Photography by watanabe__
+                        </span>
                     </div>
                 </div>
 
                 <!-- 6: Horizontal -->
-                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/2.png?raw=true"
-                        alt="Autumn Midnight"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="col-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/2.png?raw=true" alt="SlashCo VR"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'SlashCo VR')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            SlashCo VR, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            SlashCo VR, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 7: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/7.png?raw=true" alt="Dream"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="row-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/7.png?raw=true" alt="Portrait"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Portrait Style')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae, Photography by watanabe__</span>
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Sapphirae, Photography by watanabe__
+                        </span>
                     </div>
                 </div>
 
                 <!-- 8: Horizontal -->
-                <div class="col-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/6.png?raw=true" alt="SlashCo VR"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="col-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/6.png?raw=true" alt="Autumn Scene"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Autumn Scene')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Autumn Midnight, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Autumn Midnight, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 9: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/5.png?raw=true" alt="Sapphirae"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="row-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/5.png?raw=true" alt="Theme Art"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Theme Art')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Ever After, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Ever After, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 10: Horizontal -->
-                <div
-                    class="col-span-2 aspect-video relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/8.png?raw=true" alt="Dream"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="col-span-2 aspect-video relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/8.png?raw=true" alt="Detail Art"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Detail Focus')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
                             Sapphirae, Photography by watanabe__
                         </span>
                     </div>
                 </div>
 
                 <!-- 11: Vertical -->
-                <div class="row-span-2 relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/12.png?raw=true" alt="Sapphirae"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="row-span-2 relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/12.png?raw=true" alt="Bonus Visual"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Stylized Character')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            Sapphirae, Photography by arkToon Project
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            Sapphirae, Photography by arkShader Project
                         </span>
                     </div>
                 </div>
 
                 <!-- 12: Horizontal -->
-                <div
-                    class="col-span-2 aspect-video relative group overflow-hidden bg-dark-card rounded-xl showcase-card">
-                    <img src="https://github.com/arika-tune/arkToon/blob/main/Assets/10.png?raw=true" alt="Dream"
-                        class="w-full h-full object-cover transition duration-700 group-hover:scale-110 pointer-events-none select-none"
-                        draggable="false" oncontextmenu="return false;">
+                <div class="col-span-2 aspect-video relative group overflow-hidden rounded-lg showcase-card image-fallback-bg">
+                    <img src="https://github.com/arika-tune/arkShader/blob/main/Assets/10.png?raw=true" alt="Group Shot"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none select-none"
+                        draggable="false" onerror="handleImageError(this, 'Iris Group')">
                     <div class="absolute bottom-0 inset-x-0 glass-overlay p-6">
-                        <span
-                            class="text-white font-black tracking-[0.2em] text-[10px] uppercase border-l-2 border-burgundy pl-3">
-                            PhotoBooth「Iris」_AmorCacao, Photography by ももにゃんず</span>
+                        <span class="text-white font-bold tracking-[0.15em] text-[10px] uppercase border-l-2 border-burgundy pl-3 block">
+                            PhotoBooth「Iris」_AmorCacao, Photography by ももにゃんず
+                        </span>
                     </div>
                 </div>
 
@@ -599,42 +558,41 @@
     </section>
 
     <!-- Logic Section -->
-    <section id="logic" class="py-24 bg-dark-bg">
+    <section id="logic" class="py-24 bg-dark-bg relative overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4 reveal-on-scroll">
                 <div class="max-w-2xl">
-                    <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">Core Logic</h2>
-                    <h3 class="text-4xl font-bold text-white leading-tight">「ちょうどいい」を科学する、<br>3つのレンダリング哲学。</h3>
+                    <h2 class="text-burgundy-light text-sm font-black tracking-widest uppercase mb-2">Core Logic</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">「ちょうどいい」を科学する、<br>3つのレンダリング哲学。</h3>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-px bg-white/5 reveal-on-scroll" data-stagger-children="logic-card">
+            <div class="grid md:grid-cols-3 gap-px bg-white/5 rounded-lg overflow-hidden reveal-on-scroll" data-stagger-children="logic-card">
                 <!-- Logic 1 -->
-                <div class="logic-card p-10">
-                    <div class="text-burgundy font-black text-5xl mb-6 opacity-20">01</div>
-                    <h4 class="text-xl font-bold mb-4 text-white">Procedural Falloff</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        <span class="text-burgundy-light font-bold">汚くない影。</span><br>
-                        単純な閾値だけでなく、光の減衰をプロシージャルに計算。ローポリゴン特有の影のガタつきを滑らかに補間し、イラストの平面性と3Dの立体感を高次元で両立させます。
+                <div class="logic-card p-10 md:p-12">
+                    <div class="text-burgundy font-black text-6xl mb-8 opacity-25">01</div>
+                    <h4 class="text-2xl font-bold mb-4 text-white tracking-tight">Procedural Falloff</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
+                        <span class="text-burgundy-light font-bold">汚くない影。</span><br><br>
+                        単純な極端閾値だけでなく、光の減衰をプロシージャルに計算。ローポリゴン特有の影のガタつきを滑らかに補間し、イラストの平面性と3Dの立体感を高次元で美しく両立させます。
                     </p>
                 </div>
                 <!-- Logic 2 -->
-                <div class="logic-card p-10">
-                    <div class="text-burgundy font-black text-5xl mb-6 opacity-20">02</div>
-                    <h4 class="text-xl font-bold mb-4 text-white">Rich Composite</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        <span class="text-burgundy-light font-bold">コンポジット済みの質感。</span><br>
-                        ダブルリムライト、スペキュラ、疑似SSS。撮影処理（After
-                        Effects等）で行うようなレイヤー合成をシェーダー内で完結。VRChat上で「撮影済みのような画」をリアルタイムに出力します。
+                <div class="logic-card p-10 md:p-12">
+                    <div class="text-burgundy font-black text-6xl mb-8 opacity-25">02</div>
+                    <h4 class="text-2xl font-bold mb-4 text-white tracking-tight">Rich Composite</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
+                        <span class="text-burgundy-light font-bold">コンポジット済みの質感。</span><br><br>
+                        ダブルリムライト、スペキュラ、疑似SSS。撮影処理（After Effectsなど）で行うような高度なレイヤー合成をシェーダー内で完結。VRChat上で「撮影済みのクオリティ」をリアルタイムに出力します。
                     </p>
                 </div>
                 <!-- Logic 3 -->
-                <div class="logic-card p-10">
-                    <div class="text-burgundy font-black text-5xl mb-6 opacity-20">03</div>
-                    <h4 class="text-xl font-bold mb-4 text-white">Smart Optimize</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        <span class="text-burgundy-light font-bold">賢い軽量化。</span><br>
-                        「普段使いにおいての没入体験に寄与する計算」だけを厳選、不要なレンダリングパスを徹底排除。リッチな質感を実現しながら、イベント会場でも耐えうる驚異的な軽量動作を維持しています。
+                <div class="logic-card p-10 md:p-12">
+                    <div class="text-burgundy font-black text-6xl mb-8 opacity-25">03</div>
+                    <h4 class="text-2xl font-bold mb-4 text-white tracking-tight">Smart Optimize</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
+                        <span class="text-burgundy-light font-bold">賢い軽量化。</span><br><br>
+                        「普段使いにおいての没入体験に寄与する計算」のみを徹底的に厳選、不要な描画パスを排除。リッチな質感を実現しながら、負荷が重なりやすいイベント会場でも耐えうる驚異的な軽量動作を維持しています。
                     </p>
                 </div>
             </div>
@@ -642,83 +600,79 @@
     </section>
 
     <!-- Positioning Section -->
-    <section id="positioning" class="py-24 bg-dark-bg border-t border-white/5">
+    <section id="positioning" class="py-24 bg-dark-bg border-t border-white/5 relative">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal-on-scroll">
-                    <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">Positioning</h2>
-                    <h3 class="text-4xl font-bold text-white mb-8">なぜ今、arkToonなのか。</h3>
+                    <h2 class="text-burgundy-light text-sm font-black tracking-widest uppercase mb-2">Positioning</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight">なぜ今、arkShaderなのか。</h3>
                     <p class="text-gray-400 leading-relaxed mb-10 font-light">
-                        VRChatの世界において、arkToonが提供するのは<br>
-                        <strong
-                            class="text-white">「イラスト(2D)」と「物理ベース(3D)」の隙間を埋める、<br>現代的なアニメCG(2.5D)のライティング手法</strong>です。
+                        VRChatの世界において、arkShaderが提供するのは<br>
+                        <strong class="text-white font-medium">「イラスト(2D)」と「物理ベース(3D)」の隙間を埋める、<br>現代的なアニメCG(2.5D)の究極のライティング手法</strong>です。
                     </p>
 
-                    <div class="space-y-8 reveal-on-scroll" data-stagger-children="stagger-item">
+                    <div class="space-y-8" data-stagger-children="stagger-item">
                         <div class="flex gap-6 opacity-0 stagger-item">
-                            <div class="w-1 bg-gray-800"></div>
+                            <div class="w-1 bg-gray-800 shrink-0"></div>
                             <div>
-                                <h4 class="text-white font-bold text-sm mb-1">lilToon (Standard)</h4>
-                                <p class="text-xs text-gray-500">万能。フラットで清潔感のある「イラスト調」を作るのに最も適したスタンダード。</p>
+                                <h4 class="text-white font-bold text-sm mb-1 tracking-wider">lilToon (Standard)</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">万能。フラットで清潔感のある「イラスト調」を作るのに最も適した定番スタンダード。</p>
                             </div>
                         </div>
                         <div class="flex gap-6 opacity-0 stagger-item">
-                            <div class="w-1 bg-burgundy shadow-[0_0_10px_#800020]"></div>
+                            <div class="w-1 bg-burgundy shadow-[0_0_15px_#800020] shrink-0"></div>
                             <div>
-                                <h4 class="text-burgundy-light font-black text-lg mb-1 uppercase tracking-tighter">
-                                    arkToon (Cinematic)</h4>
-                                <p class="text-sm text-gray-300">
-                                    劇場版クオリティの「情報整理」。独自のスタイライズBRDFロジックで物理的な正しさよりも「画としての美しさ」を優先し、ワールドとアバター間にシネマティックな没入感を提供。
+                                <h4 class="text-burgundy-light font-black text-xl mb-1 uppercase tracking-tight">
+                                    arkShader (Cinematic / Organized)</h4>
+                                <p class="text-sm text-gray-300 leading-relaxed font-light">
+                                    劇場版クオリティの「情報整理」。独自のスタイライズBRDFロジックで物理的な硬さよりも「画としての情緒」を優先し、ワールドとアバター間にシネマティックな没入感を提供。
                                 </p>
                             </div>
                         </div>
                         <div class="flex gap-6 opacity-0 stagger-item">
-                            <div class="w-1 bg-gray-800"></div>
+                            <div class="w-1 bg-gray-800 shrink-0"></div>
                             <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Poiyomi (High-End)</h4>
-                                <p class="text-xs text-gray-500">圧倒的多機能。物理ベースの質感や複雑なVFXを追求できるプロフェッショナル向け。</p>
+                                <h4 class="text-white font-bold text-sm mb-1 tracking-wider">Poiyomi (High-End)</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">圧倒的多機能。物理ベースの質感や複雑な特殊VFXを無限に追求できるプロフェッショナル向け。</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Graph -->
+                <!-- Interactive Graph -->
                 <div class="relative aspect-square max-w-[500px] mx-auto w-full border border-white/10 bg-dark-card rounded-2xl p-8 flex flex-col justify-center items-center shadow-2xl overflow-hidden reveal-on-scroll"
                     id="shader-graph">
-                    <div class="absolute inset-0 grid-mask opacity-50 grid-drift"></div>
-                    <!-- Axis -->
-                    <div class="absolute w-[80%] h-px bg-white/10 top-1/2"></div>
-                    <div class="absolute h-[80%] w-px bg-white/10 left-1/2"></div>
+                    <div class="absolute inset-0 grid-mask opacity-60 grid-drift"></div>
+                    
+                    <!-- Axis Grid Lines -->
+                    <div class="absolute w-[85%] h-px bg-white/10 top-1/2"></div>
+                    <div class="absolute h-[85%] w-px bg-white/10 left-1/2"></div>
 
                     <!-- Labels -->
-                    <span
-                        class="absolute top-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Realistic
-                        / Physics</span>
-                    <span class="absolute bottom-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Flat
-                        / Illustration</span>
-                    <span
-                        class="absolute left-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase -rotate-90">Light</span>
-                    <span
-                        class="absolute right-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase rotate-90">Heavy</span>
+                    <span class="absolute top-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Realistic / Physics</span>
+                    <span class="absolute bottom-6 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase">Flat / Illustration</span>
+                    <span class="absolute left-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase -rotate-90">Lightweight</span>
+                    <span class="absolute right-4 text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase rotate-90">Feature-Heavy</span>
 
                     <!-- Nodes -->
                     <div class="absolute graph-node node-liltoon text-center animate-float">
-                        <div class="w-3 h-3 bg-gray-600 rounded-full mx-auto mb-2"></div>
-                        <span class="text-[10px] text-gray-500 font-bold">lilToon</span>
+                        <div class="w-4 h-4 bg-gray-600 rounded-full mx-auto mb-2 border border-gray-500"></div>
+                        <span class="text-[11px] text-gray-400 font-bold">lilToon</span>
                     </div>
                     <div class="absolute graph-node node-poiyomi text-center animate-float-delayed">
-                        <div class="w-3 h-3 bg-gray-600 rounded-full mx-auto mb-2"></div>
-                        <span class="text-[10px] text-gray-500 font-bold">Poiyomi</span>
+                        <div class="w-4 h-4 bg-gray-600 rounded-full mx-auto mb-2 border border-gray-500"></div>
+                        <span class="text-[11px] text-gray-400 font-bold">Poiyomi</span>
                     </div>
-                    <div class="absolute graph-node node-arktoon text-center scale-125">
-                        <div
-                            class="relative w-4 h-4 bg-burgundy rounded-full mx-auto mb-2 animate-pulse-glow border border-white/50 z-10">
+                    <div class="absolute graph-node node-arkshader text-center scale-125">
+                        <div class="relative w-5 h-5 bg-burgundy rounded-full mx-auto mb-2 animate-pulse-glow border border-white/70 z-10 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
                             <div class="scan-ring"></div>
-                            <div class="scan-ring" style="animation-delay: 1.5s"></div>
+                            <div class="scan-ring" style="animation-delay: 1.75s"></div>
                         </div>
-                        <span class="text-[10px] text-white font-black tracking-tighter uppercase z-10"><span
-                                class="text-burgundy">ark</span>Toon</span>
-                        <div class="text-[8px] text-burgundy-light font-bold">Organized Lighting</div>
+                        <span class="text-[11px] text-white font-black tracking-tight uppercase z-10">
+                            <span class="text-burgundy-light">ark</span>Shader
+                        </span>
+                        <div class="text-[8px] text-burgundy-light font-bold tracking-widest mt-0.5">Organized Cinematic</div>
                     </div>
                 </div>
             </div>
@@ -727,115 +681,107 @@
 
     <!-- Manual Section -->
     <section id="manual" class="py-24 bg-dark-bg relative">
-        <!-- Background Elements -->
-        <div
-            class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-burgundy/5 to-transparent pointer-events-none">
-        </div>
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-burgundy/5 to-transparent pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div
-                class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/5 pb-8 reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/5 pb-8 reveal-on-scroll">
                 <div>
-                    <h2 class="text-burgundy text-sm font-black tracking-tighter uppercase mb-2">User Manual</h2>
-                    <h3 class="text-4xl font-bold text-white">機能ガイド & テクニック</h3>
+                    <h2 class="text-burgundy-light text-sm font-black tracking-widest uppercase mb-2">User Manual</h2>
+                    <h3 class="text-4xl font-bold text-white tracking-tight">機能ガイド & クリエイティブ技術</h3>
                 </div>
-                <p class="text-gray-500 text-xs font-light mt-4 text-right">
-                    項目をクリックして詳細を確認
+                <p class="text-gray-500 text-xs md:text-sm font-light mt-4 text-right">
+                    タブを切り替えて機能ごとの解説を表示
                 </p>
             </div>
 
-            <!-- Tab Navigation -->
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-1 mb-8 reveal-on-scroll">
+            <!-- Tab Navigation Buttons -->
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-2 mb-8 reveal-on-scroll">
                 <button onclick="switchTab('target')"
-                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-wider uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition duration-300 text-gray-400 group"
                     data-tab="target">
-                    <i
-                        class="fa-solid fa-bullseye mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    <i class="fa-solid fa-bullseye mb-2 block text-lg opacity-50 group-hover:opacity-100 transition duration-300"></i>
                     適用対象
                 </button>
                 <button onclick="switchTab('base')"
-                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-wider uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition duration-300 text-gray-400 group"
                     data-tab="base">
-                    <i class="fa-solid fa-cube mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    <i class="fa-solid fa-cube mb-2 block text-lg opacity-50 group-hover:opacity-100 transition duration-300"></i>
                     基本設定
                 </button>
                 <button onclick="switchTab('shadow')"
-                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-wider uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition duration-300 text-gray-400 group"
                     data-tab="shadow">
-                    <i class="fa-solid fa-moon mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    <i class="fa-solid fa-moon mb-2 block text-lg opacity-50 group-hover:opacity-100 transition duration-300"></i>
                     影・質感
                 </button>
                 <button onclick="switchTab('spec')"
-                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-wider uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition duration-300 text-gray-400 group"
                     data-tab="spec">
-                    <i
-                        class="fa-solid fa-wand-magic-sparkles mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    <i class="fa-solid fa-wand-magic-sparkles mb-2 block text-lg opacity-50 group-hover:opacity-100 transition duration-300"></i>
                     光沢・SSS
                 </button>
                 <button onclick="switchTab('outline')"
-                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-wider uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition duration-300 text-gray-400 group"
                     data-tab="outline">
-                    <i
-                        class="fa-solid fa-pen-nib mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    <i class="fa-solid fa-pen-nib mb-2 block text-lg opacity-50 group-hover:opacity-100 transition duration-300"></i>
                     輪郭線
                 </button>
                 <button onclick="switchTab('system')"
-                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-widest uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition text-gray-400 group"
+                    class="tab-btn py-4 px-2 text-[10px] md:text-xs font-bold tracking-wider uppercase bg-dark-card border-b-2 border-transparent hover:bg-white/5 transition duration-300 text-gray-400 group"
                     data-tab="system">
-                    <i class="fa-solid fa-gear mb-2 block text-base opacity-50 group-hover:opacity-100 transition"></i>
+                    <i class="fa-solid fa-gears mb-2 block text-lg opacity-50 group-hover:opacity-100 transition duration-300"></i>
                     特殊処理
                 </button>
             </div>
 
-            <!-- Content Area -->
-            <div
-                class="bg-dark-card border border-white/10 p-6 md:p-12 min-h-[500px] relative overflow-hidden rounded-lg shadow-2xl">
+            <!-- Tab Contents Container -->
+            <div class="bg-dark-card border border-white/10 p-6 md:p-12 min-h-[500px] relative overflow-hidden rounded-lg shadow-2xl">
 
-                <!-- Tab 0: Target (Applicability) -->
-                <div id="target" class="tab-content active transition-opacity duration-300">
-                    <h4 class="text-2xl font-bold text-white mb-6">推奨される使用箇所</h4>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">
-                        arkToonは<strong class="text-white">「アバターとワールドの親和性」</strong>に特化したシェーダーです。<br>
-                        ギミックやパーティクルには適さない場合があります。
+                <!-- Tab 0: Target -->
+                <div id="target" class="tab-content active">
+                    <h4 class="text-2xl font-bold text-white mb-6 tracking-tight">推奨される使用箇所</h4>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed font-light">
+                        arkShaderは<strong class="text-white font-medium">「アバターとワールドの親和性・没入感」</strong>に特化したシネマティックシェーダーです。<br>
+                        ゲーム内ギミックや激しいパーティクル等を除いた、キャラクターを構成する主部位に対して最大の威力を発揮します。
                     </p>
 
                     <div class="grid md:grid-cols-2 gap-8">
-                        <div
-                            class="bg-gradient-to-br from-green-900/20 to-transparent p-6 rounded border border-green-900/30">
-                            <h5 class="text-green-400 font-bold mb-4 flex items-center"><i
-                                    class="fa-solid fa-circle-check mr-2"></i> 推奨 (Recommended)</h5>
-                            <ul class="space-y-4 text-sm text-gray-300">
+                        <div class="bg-gradient-to-br from-green-950/20 to-transparent p-6 rounded border border-green-900/25">
+                            <h5 class="text-green-400 font-bold mb-4 flex items-center text-sm tracking-wider">
+                                <i class="fa-solid fa-circle-check mr-2"></i> 推奨適用部位 (Recommended)
+                            </h5>
+                            <ul class="space-y-4 text-xs md:text-sm text-gray-300 font-light">
                                 <li class="flex items-start">
-                                    <span class="text-white font-bold min-w-[80px]">肌 (Skin)</span>
-                                    <span>疑似SSSによる柔らかい表現や、影色の微調整が可能です。</span>
+                                    <span class="text-white font-bold min-w-[90px] inline-block">肌 (Skin)</span>
+                                    <span>疑似SSSによる体温を感じる柔らかい表現や、繊細な2段階影のコントロールが非常に美しく映えます。</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-white font-bold min-w-[80px]">髪 (Hair)</span>
-                                    <span>「天使の輪」のようなハイライト（Replace Specular）がきれいに描画されます。</span>
+                                    <span class="text-white font-bold min-w-[90px] inline-block">髪 (Hair)</span>
+                                    <span>「天使の輪」のような独自のReplace Specularや、滑らかなProcedural Falloffによって高品質な描画が得られます。</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-white font-bold min-w-[80px]">服 (Cloth)</span>
-                                    <span>布の質感や、裏面の塗りつぶし（Interior Fill）が有効です。</span>
+                                    <span class="text-white font-bold min-w-[90px] inline-block">服 (Cloth)</span>
+                                    <span>布地独自のしっとりした陰影、MatCapによる生地表面の微小なツヤや裏面の塗りつぶし設定が効果的です。</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div
-                            class="bg-gradient-to-br from-red-900/20 to-transparent p-6 rounded border border-red-900/30">
-                            <h5 class="text-red-400 font-bold mb-4 flex items-center"><i
-                                    class="fa-solid fa-circle-xmark mr-2"></i> 非推奨 (Not Recommended)</h5>
-                            <ul class="space-y-4 text-sm text-gray-300">
+                        <div class="bg-gradient-to-br from-red-950/20 to-transparent p-6 rounded border border-red-900/25">
+                            <h5 class="text-red-400 font-bold mb-4 flex items-center text-sm tracking-wider">
+                                <i class="fa-solid fa-circle-xmark mr-2"></i> 非推奨部位 (Not Recommended)
+                            </h5>
+                            <ul class="space-y-4 text-xs md:text-sm text-gray-300 font-light">
                                 <li class="flex items-start">
-                                    <span class="text-white font-bold min-w-[100px]">パーティクル</span>
-                                    <span>加算合成やビルボード機能を持たないため、Particle System用シェーダーをご利用ください。</span>
+                                    <span class="text-white font-bold min-w-[100px] inline-block">パーティクル</span>
+                                    <span>特殊な加算ビルボード処理などは本シェーダーの設計外であるため、Unity標準のParticle用や専用シェーダーをご使用ください。</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-white font-bold min-w-[100px]">ガラス・水</span>
-                                    <span>屈折や高度な透明度計算は行いません。簡易的な半透明なら可能ですが、専用シェーダーを推奨します。</span>
+                                    <span class="text-white font-bold min-w-[100px] inline-block">屈折・水・ガラス</span>
+                                    <span>物理屈折(Refraction)のリアルタイム計算は含まれません。シンプルな半透明は対応していますが、重厚なガラス表現は専用品を推奨します。</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-white font-bold min-w-[100px]">表情用板ポリ</span>
-                                    <span>単純な板ポリゴン（チークや涙など）は、影の影響を受けたりZファイティングを起こす可能性があるため、設定に注意が必要です。</span>
+                                    <span class="text-white font-bold min-w-[100px] inline-block">表情表現用板ポリ</span>
+                                    <span>チークや涙など極度に薄いポリゴンは、環境影の影響を過剰に受けるのを防ぐため、影強度を低く抑えるよう設定が必要です。</span>
                                 </li>
                             </ul>
                         </div>
@@ -843,189 +789,172 @@
                 </div>
 
                 <!-- Tab 1: Base -->
-                <div id="base" class="tab-content hidden transition-opacity duration-300">
+                <div id="base" class="tab-content hidden">
                     <div class="grid md:grid-cols-12 gap-12">
                         <div class="md:col-span-7 space-y-8">
                             <div>
-                                <h4 class="text-2xl font-bold text-white mb-2">基本設定</h4>
-                                <p class="text-gray-400 text-sm leading-relaxed">
-                                    描画モードと基本テクスチャの設定です。<br>
-                                    まずはここを設定し、GUI上部の「プリセット」ボタンで大まかな設定を済ませるのが最短ルートです。
+                                <h4 class="text-2xl font-bold text-white mb-2 tracking-tight">基本レンダリング設定</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed font-light">
+                                    描画モードとポリゴンのカリング設定です。<br>
+                                    マテリアルの初期セットアップ時、GUI上部の「プリセット」から大枠の設定を適用するのが最も効率的です。
                                 </p>
                             </div>
 
-                            <div class="bg-white/5 p-6 rounded border border-white/5">
-                                <h5 class="text-burgundy-light font-bold text-xs uppercase mb-3">Rendering Mode (描画モード)
-                                </h5>
-                                <ul class="space-y-4 text-xs text-gray-400">
-                                    <li class="grid grid-cols-[100px_1fr] items-center">
-                                        <strong
-                                            class="text-white bg-black/40 px-2 py-1 rounded text-center mr-2">Opaque</strong>
-                                        <span>不透明。最も高速で、影のトラブルが起きにくいモードです。肌や厚手の服に。</span>
+                            <div class="bg-white/[0.02] p-6 rounded border border-white/5">
+                                <h5 class="text-burgundy-light font-bold text-xs uppercase mb-4 tracking-widest">Rendering Mode (描画モード)</h5>
+                                <ul class="space-y-4 text-xs text-gray-400 font-light">
+                                    <li class="grid grid-cols-[100px_1fr] items-start gap-2">
+                                        <span class="text-white bg-white/10 px-2 py-0.5 rounded font-mono text-center text-[10px]">Opaque</span>
+                                        <span>不透明。最も描画効率が高く、影の不整合が起きない基本モード。肌やベースの衣装類に最適。</span>
                                     </li>
-                                    <li class="grid grid-cols-[100px_1fr] items-center">
-                                        <strong
-                                            class="text-white bg-black/40 px-2 py-1 rounded text-center mr-2">Cutout</strong>
-                                        <span>切り抜き。アルファ値がしきい値(Cutoff)を下回ると透明になります。レースや金網に。</span>
+                                    <li class="grid grid-cols-[100px_1fr] items-start gap-2">
+                                        <span class="text-white bg-white/10 px-2 py-0.5 rounded font-mono text-center text-[10px]">Cutout</span>
+                                        <span>カットアウト（切り抜き）。境界線がシャープな半透明（まつ毛、レース、網等）に適用し、カットオフの閾値をスライダーで調整します。</span>
                                     </li>
-                                    <li class="grid grid-cols-[100px_1fr] items-center">
-                                        <strong
-                                            class="text-white bg-black/40 px-2 py-1 rounded text-center mr-2">Transparent</strong>
-                                        <span>半透明。ガラスや薄い布、頬染めチークなどに。描画順序の問題が出る場合があります。</span>
+                                    <li class="grid grid-cols-[100px_1fr] items-start gap-2">
+                                        <span class="text-white bg-white/10 px-2 py-0.5 rounded font-mono text-center text-[10px]">Transparent</span>
+                                        <span>半透明。アルファ値による滑らかな透明描画。シースルー衣装やチーク等に。描画順バグへの注意が必要です。</span>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="bg-white/5 p-6 rounded border border-white/5">
-                                <h5 class="text-burgundy-light font-bold text-xs uppercase mb-3">Cull Mode (カリング)</h5>
-                                <p class="text-xs text-gray-400 mb-2">ポリゴンの裏面を描画するかどうかを決定します。</p>
-                                <ul class="space-y-2 text-xs">
-                                    <li class="flex items-center"><span class="w-16 font-bold text-white">Back</span> :
-                                        通常設定。裏面を描画しません（軽量）。</li>
-                                    <li class="flex items-center"><span class="w-16 font-bold text-white">Off</span> :
-                                        両面を描画します。スカートやマントなど、裏側が見えるパーツに使用します。</li>
+                            <div class="bg-white/[0.02] p-6 rounded border border-white/5">
+                                <h5 class="text-burgundy-light font-bold text-xs uppercase mb-3 tracking-widest">Cull Mode (カリング)</h5>
+                                <p class="text-xs text-gray-400 mb-3 font-light">メッシュの裏面をどのように描画するかを切り替えます。</p>
+                                <ul class="space-y-2 text-xs font-light">
+                                    <li class="flex items-center"><span class="w-16 font-bold text-white font-mono">Back</span> : 表側のみ描画し、無駄な裏面計算を行わない軽量設定。</li>
+                                    <li class="flex items-center"><span class="w-16 font-bold text-white font-mono">Off</span> : 両面描画。スカートの内側、マント、髪の毛の隙間から見える裏面などに使用します。</li>
                                 </ul>
                             </div>
                         </div>
-                        <div
-                            class="md:col-span-5 bg-burgundy/5 p-8 rounded-xl border border-burgundy/20 flex flex-col justify-center">
-                            <h5 class="text-white font-bold mb-4 flex items-center"><i
-                                    class="fa-solid fa-shield-cat text-burgundy-light mr-2"></i> Hi-Cut Filter</h5>
-                            <p class="text-sm text-gray-300 leading-relaxed">
-                                <strong class="text-white">白飛び防止機能 (常時ON)</strong><br><br>
-                                VRChatのワールドには、Bloom効果のために輝度が1.0を超える極端に明るいライトが設置されている場合があります。<br>
-                                arkToonは内部処理でこの「眩しすぎる光」を検知し、色味を保ったまま適正輝度(1.0)に抑え込みます。これにより、どんなワールドでも顔のテクスチャが白飛びして消えるのを防ぎます。
+
+                        <div class="md:col-span-5 bg-burgundy/5 p-8 rounded-xl border border-burgundy/20 flex flex-col justify-center">
+                            <h5 class="text-white font-bold mb-4 flex items-center tracking-wide text-sm">
+                                <i class="fa-solid fa-shield-halved text-burgundy-light mr-2"></i> Hi-Cut Filter (輝度補正)
+                            </h5>
+                            <p class="text-xs md:text-sm text-gray-300 leading-relaxed font-light">
+                                <strong class="text-white font-medium">白飛び防止セーフガード (常時アクティブ)</strong><br><br>
+                                VRChatの一部のワールドでは、Bloomエフェクトを発揮させるために過度に強いライト強度が置かれているケースがあります。<br><br>
+                                arkShaderは、この「不自然な過度輝度」を内部のスタイライズド演算段階で検知し、テクスチャのディテールや肌の立体感が完全に消失（白飛び）するのを賢く抑制。いかなる極端な環境でも常に品位を保持します。
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tab 2: Shadow -->
-                <div id="shadow" class="tab-content hidden transition-opacity duration-300">
+                <div id="shadow" class="tab-content hidden">
                     <div class="grid md:grid-cols-12 gap-12">
-                        <div class="md:col-span-8">
-                            <h4 class="text-2xl font-bold text-white mb-6">2段階の影とリムライト</h4>
+                        <div class="md:col-span-8 space-y-8">
+                            <h4 class="text-2xl font-bold text-white mb-2 tracking-tight">2段階の影調と滑らかな境界</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                                イラストの情緒を破綻させず、かつ3Dとしての立体構造を豊かに描写するためのシャドウ・メカニズム。
+                            </p>
 
                             <div class="space-y-8">
-                                <!-- Shadows -->
                                 <div>
-                                    <h5
-                                        class="text-burgundy-light font-bold text-sm mb-3 border-b border-white/10 pb-2">
-                                        1st & 2nd Shade (影設定)</h5>
-                                    <p class="text-gray-400 text-xs mb-4">
-                                        「基本色」→「1段階目の影(薄い)」→「2段階目の影(濃い)」の3階調でアニメ塗りを表現します。
-                                        テクスチャを指定しない場合、<span class="text-white">BaseColorに乗算</span>されます。
+                                    <h5 class="text-burgundy-light font-bold text-xs uppercase tracking-widest mb-3 border-b border-white/5 pb-2">1st & 2nd Shade (2段階シャドウ)</h5>
+                                    <p class="text-gray-400 text-xs mb-4 font-light">
+                                        「ベース（明部）」→「第1の陰影（ハーフシャドウ）」→「第2の深い影」というイラストレーション表現に基づく階調を設定可能。影テクスチャを指定しない場合は、ベースカラーへのカラー乗算処理に切り替わります。
                                     </p>
                                     <div class="grid grid-cols-2 gap-4">
-                                        <div class="bg-black/20 p-4 rounded">
-                                            <span class="text-white font-bold text-xs">Step (しきい値)</span>
-                                            <p class="text-[10px] text-gray-500 mt-1">
-                                                影になる範囲を決定します。数値が高いほど影になりやすくなります。
+                                        <div class="bg-black/40 p-4 rounded border border-white/5">
+                                            <span class="text-white font-bold text-xs block">Step (しきい値)</span>
+                                            <p class="text-[10px] text-gray-500 mt-2 font-light leading-relaxed">
+                                                影の侵食度を決定します。値を大きくすると陰影面積が拡大し、よりドラマチックな表現に。
                                             </p>
                                         </div>
-                                        <div class="bg-black/20 p-4 rounded">
-                                            <span class="text-white font-bold text-xs">Feather (ぼかし)</span>
-                                            <p class="text-[10px] text-gray-500 mt-1">
-                                                影の境界をぼかします。ローポリゴンのカクつきを誤魔化すには、0.1〜0.3程度入れるのがコツです。
+                                        <div class="bg-black/40 p-4 rounded border border-white/5">
+                                            <span class="text-white font-bold text-xs block">Feather (境界ぼかし)</span>
+                                            <p class="text-[10px] text-gray-500 mt-2 font-light leading-relaxed">
+                                                影の境界線のマイルドさを微調整。0.15前後に設定することで、ローポリゴンの影ギザギザを自然に消すことができます。
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Rim Lights -->
                                 <div>
-                                    <h5
-                                        class="text-burgundy-light font-bold text-sm mb-3 border-b border-white/10 pb-2">
-                                        Rim Light (逆光表現)</h5>
-                                    <p class="text-gray-400 text-xs mb-4">
-                                        モデルの縁を光らせ、背景からキャラを際立たせます。2つのリムライトを同時に使用可能です。
+                                    <h5 class="text-burgundy-light font-bold text-xs uppercase tracking-widest mb-3 border-b border-white/5 pb-2">Rim Light (輪郭リムライト)</h5>
+                                    <p class="text-gray-400 text-xs mb-4 font-light">
+                                        逆光によるエッジの発光。暗い背景の中でキャラクターのアウトラインを立たせる視覚的レイヤー。
                                     </p>
-                                    <div class="bg-white/5 p-4 rounded border border-white/5">
-                                        <h6 class="text-white text-xs font-bold mb-2">Additive Mode (加算モード) の違い</h6>
-                                        <ul class="space-y-2 text-xs">
-                                            <li class="flex items-start">
-                                                <span class="text-burgundy-light font-bold min-w-[40px]">ON</span>
-                                                <span class="text-gray-400">光を加算して発光させます。金属や濡れた表現、強い日差しに。</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span class="text-blue-400 font-bold min-w-[40px]">OFF</span>
-                                                <span
-                                                    class="text-gray-400">色を合成(Lerp)します。白飛びさせず、指定した色（環境色など）を縁に乗せたい場合に。</span>
-                                            </li>
-                                        </ul>
+                                    <div class="bg-white/[0.02] p-4 rounded border border-white/5 text-xs font-light">
+                                        <h6 class="text-white font-bold mb-2 text-[11px] uppercase tracking-wider">Additive Mode（ブレンドモード）の特性</h6>
+                                        <div class="space-y-3">
+                                            <div class="flex items-start">
+                                                <span class="text-burgundy-light font-bold min-w-[50px] inline-block">ON</span>
+                                                <span class="text-gray-400">リム部が加算発光し、硬質な金属光沢や濡れた光、サイバーな輝きを演出。</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <span class="text-blue-400 font-bold min-w-[50px] inline-block">OFF</span>
+                                                <span class="text-gray-400">Lerp（色合成）によるオーバーレイ。輝度が飽和せず、設定色をベース上にそのまま綺麗にブレンドします。</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="md:col-span-4 space-y-4">
-                            <div class="bg-dark-bg p-6 rounded border-l-4 border-blue-500">
-                                <h6 class="text-blue-400 font-bold text-xs uppercase mb-2">Tip: 影の色選び</h6>
-                                <p class="text-gray-300 text-xs leading-relaxed">
-                                    影の色設定を「グレー」にすると、画面がくすんで見えます。<br>
-                                    <span class="text-white">環境光や肌の色を少し混ぜた色</span>を設定すると、リッチな仕上がりになります。
-                                    <br><br>
-                                    <strong class="text-white">例：</strong><br>
-                                    肌の影 → 薄いピンク<br>
-                                    白シャツの影 → 薄い青紫
+                            <div class="bg-dark-bg p-6 rounded-lg border-l-4 border-burgundy">
+                                <h6 class="text-burgundy-light font-bold text-xs uppercase tracking-wider mb-2">Tips: 表現豊かな影色の選び方</h6>
+                                <p class="text-gray-300 text-xs leading-relaxed font-light">
+                                    影色（特に1st Shade）に単純な「グレー」を当てはめてしまうと、画面全体がくすんで汚れて見えやすくなります。<br><br>
+                                    アニメ作画で用いられるような、<span class="text-white">背景（環境光）の色や、補色のブルー・パープル、肌であれば温かみのあるサーモンピンク</span>を僅かに交ぜることで、極めて洗練されたシネマ感を生み出すことができます。
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab 3: Specular & SSS -->
-                <div id="spec" class="tab-content hidden transition-opacity duration-300">
-                    <h4 class="text-2xl font-bold text-white mb-6">質感を「嘘」で演出する</h4>
+                <!-- Tab 3: Specular -->
+                <div id="spec" class="tab-content hidden">
+                    <h4 class="text-2xl font-bold text-white mb-6 tracking-tight">質感を高度にスタイライズする</h4>
 
                     <div class="grid md:grid-cols-2 gap-12">
-                        <!-- Specular -->
-                        <div class="space-y-4">
-                            <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">Specular
-                                (ハイライト)</h5>
-                            <p class="text-gray-400 text-xs">
-                                光の反射を描画します。<strong class="text-white">Blend Mode</strong>でアニメ調とリアル調を切り替えられます。
+                        <!-- Specular & Matcap -->
+                        <div class="space-y-6">
+                            <h5 class="text-burgundy-light font-bold text-xs uppercase tracking-widest border-b border-white/5 pb-2">Specular (ハイライト反射)</h5>
+                            <p class="text-gray-400 text-xs font-light leading-relaxed">
+                                光源との角度によって生まれる鏡面反射。<strong class="text-white font-medium">Blend Mode</strong> の変更により、アニメ風の硬質なツヤと、半リアルなグラデーション調のツヤを切り替えます。
                             </p>
-                            <ul class="space-y-3 mt-4">
-                                <li class="bg-dark-bg p-3 rounded border border-white/5 relative overflow-hidden">
-                                    <span class="text-white text-xs font-bold block mb-1">Replace Mode (置き換え)</span>
-                                    <p class="text-gray-500 text-[10px]">
-                                        ハイライトの色で下地を完全に上書きします。加算合成しないため白飛びせず、髪の「天使の輪」やアニメ的な「くっきりしたツヤ」に最適です。
+                            <div class="space-y-3 mt-4">
+                                <div class="bg-black/30 p-4 rounded border border-white/5 text-xs font-light">
+                                    <span class="text-white font-bold block mb-1">Replace Mode (置き換え)</span>
+                                    <p class="text-gray-400 text-[10px] leading-relaxed">
+                                        ハイライトカラーで下地テクスチャを強制上書き。加算（白飛び）せず、くっきりとした「天使の輪」を一定の明るさで安定描画させます。髪の毛に最適。
                                     </p>
-                                </li>
-                                <li class="bg-dark-bg p-3 rounded border border-white/5">
-                                    <span class="text-white text-xs font-bold block mb-1">Additive Mode (加算)</span>
-                                    <p class="text-gray-500 text-[10px]">
-                                        光を加算します。ラテックス、金属、宝石など、強く輝かせたいパーツに向いています。
+                                </div>
+                                <div class="bg-black/30 p-4 rounded border border-white/5 text-xs font-light">
+                                    <span class="text-white font-bold block mb-1">Additive Mode (加算)</span>
+                                    <p class="text-gray-400 text-[10px] leading-relaxed">
+                                        光線を重ねる物理的なアプローチ。瞳の輝き、濡れたガラス、金属、プラスチックなどの硬質マテリアルに最適です。
                                     </p>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
 
                             <div class="pt-4">
-                                <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">MatCap
-                                </h5>
-                                <p class="text-gray-400 text-xs mt-2">
-                                    カメラの角度に応じた固定反射マッピングです。金属光沢や、特定方向のハイライトを安価に追加できます。
+                                <h5 class="text-burgundy-light font-bold text-xs uppercase tracking-widest border-b border-white/5 pb-2">MatCap Reflection</h5>
+                                <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">
+                                    カメラ視点の角度（法線）を利用してマッピング画像を適用。軽量かつ美しくフェイク反射を描画でき、服の金糸刺繍やエナメルの強い光沢などを手軽に実装できます。
                                 </p>
                             </div>
                         </div>
 
                         <!-- SSS -->
-                        <div class="space-y-4">
-                            <h5 class="text-burgundy-light font-bold text-sm border-b border-white/10 pb-2">Fake SSS
-                                (疑似表面下散乱)</h5>
-                            <p class="text-gray-400 text-xs">
-                                光と影の境界線（明暗の境目）にだけ、指定した色（赤みなど）を乗せる機能です。
-                                「光が皮膚を透過して赤く見える現象」を擬似的に再現し、肌の柔らかさを表現します。
+                        <div class="space-y-6">
+                            <h5 class="text-burgundy-light font-bold text-xs uppercase tracking-widest border-b border-white/5 pb-2">Fake SSS (疑似表面下散乱)</h5>
+                            <p class="text-gray-400 text-xs font-light leading-relaxed">
+                                人間の皮膚などに光が差し込んだ際、内部組織で光が分散して赤く透き通る現象（Subsurface Scattering）をシェーダー段階で疑似的に再現。
+                                明部と暗部のちょうど「境界線の位置」に設定した赤みをブレンドすることで、3Dモデル独特の無機質な硬さを払拭し、血の通った柔らかな肌色を再現します。
                             </p>
 
-                            <div class="bg-burgundy/10 p-4 rounded border border-burgundy/20 mt-4">
-                                <span class="text-burgundy-light text-[10px] font-bold uppercase"><i
-                                        class="fa-solid fa-triangle-exclamation mr-1"></i> 重要：マスク設定</span>
-                                <p class="text-gray-300 text-xs mt-1">
-                                    全身にかかると服まで赤く光ってしまいます。<br>
-                                    必ず<strong class="text-white">Base OptMap</strong>の<strong
-                                        class="text-blue-400">Blue(青)チャンネル</strong>で、効果をかけたい場所（肌など）だけが白くなるようなマスクを指定してください。
+                            <div class="bg-burgundy/10 p-5 rounded border border-burgundy/20 mt-4 text-xs font-light leading-relaxed">
+                                <span class="text-burgundy-light text-[10px] font-bold uppercase block mb-1">
+                                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> 最適化マスク：Base OptMap
+                                </span>
+                                <p class="text-gray-300">
+                                    Fake SSSをアバター全体にかけてしまうと、布や革製ベルトまで赤く変色してしまいます。<br><br>
+                                    最適化テクスチャである<strong class="text-white font-medium">Base OptMap</strong>の<strong class="text-blue-400 font-medium">Blue(青)チャンネル</strong>に部分マスクを作成し、肌の部分のみが反応するように設計してください。
                                 </p>
                             </div>
                         </div>
@@ -1033,103 +962,94 @@
                 </div>
 
                 <!-- Tab 4: Outline -->
-                <div id="outline" class="tab-content hidden transition-opacity duration-300">
+                <div id="outline" class="tab-content hidden">
                     <div class="grid md:grid-cols-12 gap-12">
-                        <div class="md:col-span-7">
-                            <h4 class="text-2xl font-bold text-white mb-6">崩れない輪郭線</h4>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                                背面法線押し出し方式のアウトラインです。<br>
-                                距離による補正機能により、遠く離れてもモデルが黒く潰れるのを防ぎます。
+                        <div class="md:col-span-7 space-y-6">
+                            <h4 class="text-2xl font-bold text-white mb-4 tracking-tight">遠近でも崩れない高品質輪郭線</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed font-light">
+                                メッシュを頂点法線方向に裏返して押し出すクラシックな背面法線押し出しアウトライン。<br>
+                                距離補正機能により、アバターがカメラから大きく離れた際でも、線が過度に太くなって黒く潰れてしまう問題を完全に抑止します。
                             </p>
 
                             <div class="space-y-4">
-                                <div class="bg-white/5 p-4 rounded">
-                                    <h5 class="text-white font-bold text-xs mb-1">Distance Scaling (距離補正)</h5>
-                                    <p class="text-gray-500 text-[10px]">
-                                        <span class="text-burgundy-light font-bold">Nearest / Farthest
-                                            Distance</span>で設定した距離に応じて、線の太さを自動調整します。
-                                        遠くに行くほど線を細く（あるいは0に）することで、VR空間での見栄えを維持します。
+                                <div class="bg-white/[0.02] p-4 rounded border border-white/5 text-xs font-light">
+                                    <h5 class="text-white font-bold mb-1">Distance Scaling (遠近感自動補正)</h5>
+                                    <p class="text-gray-400 leading-relaxed text-[11px]">
+                                        指定された範囲距離（Nearest/Farthest Distance）に基づいて、輪郭線の太さを動的にスケーリング。アバターのシルエットを一定のクオリティに最適化維持します。
                                     </p>
                                 </div>
-                                <div class="bg-white/5 p-4 rounded">
-                                    <h5 class="text-white font-bold text-xs mb-1">Base OptMapによる制御</h5>
-                                    <p class="text-gray-500 text-[10px]">
-                                        <strong class="text-green-500">Green(緑)チャンネル</strong>がマスクとして機能します。<br>
-                                        口の中、瞳、髪の毛先など、線を出したくない場所は黒く塗ることで部分的に線を消せます。
+                                <div class="bg-white/[0.02] p-4 rounded border border-white/5 text-xs font-light">
+                                    <h5 class="text-white font-bold mb-1">OptMapによるピンポイント制御</h5>
+                                    <p class="text-gray-400 leading-relaxed text-[11px]">
+                                        <strong class="text-green-500 font-medium">Green(緑)チャンネル</strong>をマスクとして読み込みます。目元の周辺、唇、細かい装飾、指先など、輪郭線を描画させたくない複雑な部分に黒（0値）を乗せることで、線の発生を防ぎます。
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="md:col-span-5 bg-black/40 p-8 rounded-xl flex flex-col items-center justify-center text-center border border-white/5">
-                            <div
-                                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4 text-dark-bg text-xl font-black">
-                                <i class="fa-solid fa-paintbrush"></i>
+                        
+                        <div class="md:col-span-5 bg-black/40 p-8 rounded-xl flex flex-col items-center justify-center text-center border border-white/5">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-4 text-burgundy-light text-2xl">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
                             </div>
-                            <h5 class="text-white font-bold mb-2">フィギュア風の表現</h5>
-                            <p class="text-xs text-gray-400 leading-relaxed">
-                                最近のトレンドとして、あえて輪郭線の幅を<strong class="text-white">0</strong>にする、
-                                または極細にして色を肌馴染みの良い色（茶色など）に設定すると、
-                                フィギュアのような繊細な質感が出せます。
+                            <h5 class="text-white font-bold mb-2 tracking-wide text-sm">フィギュアライクな洗練感</h5>
+                            <p class="text-xs text-gray-400 leading-relaxed font-light">
+                                近年のアバタートレンドとして、あえてアウトラインを<strong class="text-white font-medium">「0 (非表示)」</strong>にするか、極限まで細くした上で色味を黒ではなく「肌色を少し濃くしたブラウン」や「髪色の同系色」に寄せることで、上質なトイフィギュアのような繊細で清潔な質感を出すことができます。
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab 5: System / Overlay -->
-                <div id="system" class="tab-content hidden transition-opacity duration-300">
+                <!-- Tab 5: System -->
+                <div id="system" class="tab-content hidden">
                     <div class="grid md:grid-cols-2 gap-12">
-                        <div>
-                            <h4 class="text-2xl font-bold text-white mb-4">VR接写の「お作法」</h4>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                                VRChatなどのVR空間では、他プレイヤーが極端に近づく（撫でる、ハグする）ことがあります。
-                                その際、カメラがモデルを突き抜けて中身が見えてしまうのを防ぐための機能群です。
+                        <div class="space-y-6">
+                            <h4 class="text-2xl font-bold text-white tracking-tight">VR特有のめり込みとお作法への対策</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed font-light">
+                                VRChatを代表とするVRプラットフォームでは、他のプレイヤーと物理的に近づく「ハグ」や「接写」が頻繁に行われます。
+                                カメラがアバターモデルの裏側に突き抜けた際、内部の空洞が見えてしまう視覚的な興ざめを防ぐスマートな補助機能。
                             </p>
 
                             <ul class="space-y-6">
-                                <li class="bg-white/5 p-4 rounded">
-                                    <div class="flex items-center mb-2">
-                                        <i class="fa-solid fa-fill-drip text-burgundy mr-2"></i>
-                                        <strong class="text-white text-sm">Interior Fill (裏面の塗りつぶし)</strong>
+                                <li class="bg-white/[0.02] p-5 rounded border border-white/5 font-light text-xs leading-relaxed">
+                                    <div class="flex items-center mb-3">
+                                        <i class="fa-solid fa-fill-drip text-burgundy-light mr-2 text-sm"></i>
+                                        <strong class="text-white text-sm">Interior Fill (内壁自動塗りつぶし)</strong>
                                     </div>
-                                    <p class="text-xs text-gray-400 ml-6 mb-2">
-                                        カメラがメッシュを突き抜けた際、裏面を単色で塗りつぶして表示します。<br>
-                                        メインテクスチャの平均色と影色を混ぜ合わせ、「中が暗くなっている」ように見せます。
+                                    <p class="text-gray-400 ml-6 mb-3">
+                                        カメラがメッシュ裏面に貫通した際、不自然に透明にならず、メインテクスチャの平均色と陰影色を重ねた色合いで内部をダーク調に単一塗りつぶし描画します。
                                     </p>
-                                    <div
-                                        class="ml-6 text-[10px] text-yellow-500 bg-yellow-900/20 p-2 rounded inline-block">
-                                        <i class="fa-solid fa-circle-exclamation mr-1"></i> 注意: テクスチャのMipMap生成(Generate
-                                        Mip Maps)を有効にしてください。
+                                    <div class="ml-6 text-[10px] text-yellow-500 bg-yellow-950/20 p-2 rounded inline-block">
+                                        <i class="fa-solid fa-circle-exclamation mr-1"></i> 注意: この機能の動作には、対応するテクスチャの「Generate Mip Maps（MipMap生成）」がONである必要があります。
                                     </div>
                                 </li>
-                                <li class="bg-white/5 p-4 rounded">
-                                    <div class="flex items-center mb-2">
-                                        <i class="fa-solid fa-shield-halved text-burgundy mr-2"></i>
-                                        <strong class="text-white text-sm">Clip Cancel (ニアクリップ防止)</strong>
+                                <li class="bg-white/[0.02] p-5 rounded border border-white/5 font-light text-xs leading-relaxed">
+                                    <div class="flex items-center mb-3">
+                                        <i class="fa-solid fa-video-slash text-burgundy-light mr-2 text-sm"></i>
+                                        <strong class="text-white text-sm">Near Clip Prevent (ニアクリップ消失防止)</strong>
                                     </div>
-                                    <p class="text-xs text-gray-400 ml-6">
-                                        カメラが顔に埋まった瞬間、ポリゴンが消失してしまうのを防ぎます。
-                                        頂点シェーダーで強制的にカメラの手前に頂点を押し戻します。
+                                    <p class="text-gray-400 ml-6">
+                                        カメラが頭部に極端に埋まった際、顔のメッシュの一部がカメラのNearクリッピングプレーンを突き抜けて「顔の穴が空いて見える」バグを、頂点シェーダー側で検知して自動で手前に引き留め歪みを防ぎます。
                                     </p>
                                 </li>
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 class="text-2xl font-bold text-white mb-4">その他の機能</h4>
+                        <div class="space-y-6">
+                            <h4 class="text-2xl font-bold text-white tracking-tight">その他の統合モジュール</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed font-light">
+                                arkShaderが提供する、細部への演出と表現能力の追求。
+                            </p>
                             <ul class="space-y-4">
-                                <li class="bg-white/5 p-4 rounded border-l-2 border-burgundy">
-                                    <h5 class="text-white text-sm font-bold">Distance Shadow (距離フェード影)</h5>
-                                    <p class="text-xs text-gray-400 mt-1">
-                                        カメラが近づいた時だけ、画面全体を暗くするオーバーレイを表示します。
-                                        「これ以上近づくと見えなくなる」ことを示唆し、めり込みの違和感を緩和します。
+                                <li class="bg-white/[0.02] p-5 rounded border-l-2 border-burgundy font-light text-xs">
+                                    <h5 class="text-white font-bold text-sm mb-1">Distance Shadow Overlay (距離減衰オーバーレイ)</h5>
+                                    <p class="text-gray-400 leading-relaxed mt-2">
+                                        他プレイヤーのカメラが極端に近接（ゼロ距離）したときに、画面の一部へマイルドな減衰シャドウをかけ、不要なカメラめり込みをスマートに示唆してユーザーの心地よさを担保します。
                                     </p>
                                 </li>
-                                <li class="bg-white/5 p-4 rounded border-l-2 border-burgundy">
-                                    <h5 class="text-white text-sm font-bold">Emission (発光)</h5>
-                                    <p class="text-xs text-gray-400 mt-1">
-                                        暗い場所でも光るテクスチャを指定します。
-                                        HDRカラーに対応しており、Bloomエフェクトと連動して輝かせることが可能です。
+                                <li class="bg-white/[0.02] p-5 rounded border-l-2 border-burgundy font-light text-xs">
+                                    <h5 class="text-white font-bold text-sm mb-1">Emission HDR (高ダイナミック発光)</h5>
+                                    <p class="text-gray-400 leading-relaxed mt-2">
+                                        暗闇でアバターの特定部位（電子テクスチャ、瞳、ネオン装飾等）をクールに発光させます。輝度はHDRに対応しており、Bloomが有効なカメラやワールド環境において、美しく拡散オーラ（後光）を放ちます。
                                     </p>
                                 </li>
                             </ul>
@@ -1141,41 +1061,68 @@
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-black py-20 border-t border-white/10 relative overflow-hidden">
+        <div class="absolute inset-0 grid-mask opacity-10 pointer-events-none"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl brand-font text-white mb-2">
+                <span class="text-burgundy">ark</span>Shader
+            </h2>
+            <p class="text-burgundy-light text-[10px] tracking-[0.45em] uppercase font-black mb-12">Stylized Lighting Engine</p>
+
+            <div class="flex justify-center space-x-6 mb-12 text-gray-500 text-sm">
+                <a href="#logic" class="hover:text-white transition duration-300">Philosophy</a>
+                <span class="text-white/10">|</span>
+                <a href="#positioning" class="hover:text-white transition duration-300">Positioning</a>
+                <span class="text-white/10">|</span>
+                <a href="#manual" class="hover:text-white transition duration-300">Manual</a>
+            </div>
+
+            <p class="text-gray-600 text-xs font-light max-w-sm mx-auto leading-relaxed">
+                &copy; 2026 arkShader Project. All rights reserved.<br>
+                bridging the gap between anime and cg.
+            </p>
+        </div>
+    </footer>
+
     <script>
+        // Image Error Handler to replace broken image paths gracefully with beautifully styled placeholders
+        function handleImageError(image, label) {
+            image.onerror = null; // Prevent endless loop
+            const width = image.parentElement.classList.contains('col-span-2') ? '800' : '400';
+            const height = '600';
+            // Generating beautiful aesthetic custom SVG placeholder in-place
+            image.src = `https://placehold.co/${width}x${height}/161616/800020?text=arkShader+${encodeURIComponent(label)}`;
+        }
+
+        // Tab Switcher with transition animation
         function switchTab(tabId) {
-            // Hide all content
+            // Hide all tab content
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active', 'block');
                 content.classList.add('hidden');
-                // Small timeout to allow transition
-                setTimeout(() => {
-                    if (!content.classList.contains('active')) {
-                        content.style.opacity = '0';
-                    }
-                }, 50);
+                content.style.opacity = '0';
             });
 
-            // Show selected content
-            const selected = document.getElementById(tabId);
-            selected.classList.remove('hidden');
-            selected.classList.add('active', 'block');
+            // Show current tab content
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
+                selectedTab.classList.add('active', 'block');
+                
+                // Force a reflow for browser to register the class shift
+                void selectedTab.offsetWidth;
+                selectedTab.style.opacity = '1';
+            }
 
-            // Force reflow
-            void selected.offsetWidth;
-
-            selected.style.opacity = '1';
-
-            // Update buttons
+            // Keep buttons visually consistent
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 if (btn.dataset.tab === tabId) {
-                    btn.setAttribute('data-active', 'true');
                     btn.classList.remove('text-gray-400', 'border-transparent');
                     btn.classList.add('text-white', 'border-burgundy', 'bg-white/5');
-                    // Icon specific
                     const icon = btn.querySelector('i');
                     if (icon) icon.classList.remove('opacity-50');
                 } else {
-                    btn.setAttribute('data-active', 'false');
                     btn.classList.add('text-gray-400', 'border-transparent');
                     btn.classList.remove('text-white', 'border-burgundy', 'bg-white/5');
                     const icon = btn.querySelector('i');
@@ -1184,10 +1131,22 @@
             });
         }
 
+        // Scroll and Animation Controller
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize active tab
             switchTab('target');
 
-            // Global Directional Reveal
+            // Header Background and Sticky Nav Styling on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+
+            // Directional Reveal Observer
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1201,16 +1160,14 @@
 
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // Determine direction and apply class if not already active
                         if (!entry.target.classList.contains('active')) {
                             entry.target.classList.remove('reveal-up', 'reveal-down');
                             entry.target.classList.add(isScrollingDown ? 'reveal-up' : 'reveal-down');
 
-                            // Small delay for class application
                             requestAnimationFrame(() => {
                                 entry.target.classList.add('active');
 
-                                // Stagger children
+                                // Stagger Children load triggers
                                 const staggerSelector = entry.target.dataset.staggerChildren;
                                 if (staggerSelector) {
                                     const children = entry.target.querySelectorAll(`.${staggerSelector}`);
@@ -1218,20 +1175,23 @@
                                         setTimeout(() => {
                                             child.classList.add('active');
                                             child.classList.remove('opacity-0');
-                                        }, childIndex * 150);
+                                        }, childIndex * 120);
                                     });
                                 }
 
-                                // Special handling for shader graph
+                                // Interactive graph nodes trigger
                                 if (entry.target.id === 'shader-graph') {
                                     const nodes = entry.target.querySelectorAll('.graph-node');
                                     nodes.forEach((node, nodeIndex) => {
-                                        setTimeout(() => node.classList.add('active'), 600 + (nodeIndex * 200));
+                                        setTimeout(() => {
+                                            node.classList.add('active');
+                                        }, 400 + (nodeIndex * 180));
                                     });
                                 }
                             });
                         }
                     } else {
+                        // Reset if offscreen (user scrolled out of view)
                         if (entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0) {
                             entry.target.classList.remove('active');
                             const staggerSelector = entry.target.dataset.staggerChildren;
@@ -1250,30 +1210,12 @@
             }, observerOptions);
 
             document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                // Initialize with reveal-up by default
                 el.classList.add('reveal-up');
                 observer.observe(el);
             });
         });
-    </script>
 
-    <!-- Footer -->
-    <footer class="bg-black py-16 border-t border-white/10">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl brand-font text-white mb-2">
-                <span class="text-burgundy">ark</span>Toon
-            </h2>
-            <p class="text-burgundy-light text-[10px] tracking-[0.4em] uppercase font-black mb-12">Stylized Lighting
-                Engine</p>
-
-            <p class="text-gray-700 text-xs font-light max-w-sm mx-auto">
-                &copy; 2026 arkToon Project. All rights reserved.<br>
-                bridging the gap between anime and cg.
-            </p>
-        </div>
-    </footer>
-
-    <script>
+        // Basic protection to mimic raw application look
         document.addEventListener('copy', (e) => e.preventDefault());
         document.addEventListener('cut', (e) => e.preventDefault());
         document.addEventListener('selectstart', (e) => e.preventDefault());
