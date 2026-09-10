@@ -31,7 +31,7 @@
         {
             "name": "_PCSS_MaxThickness",
             "type": "Float",
-            "value": "0.03"
+            "value": "0.5"
         },
         {
             "name": "_DecoupleShadow",
