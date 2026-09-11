@@ -22,26 +22,6 @@
             "name": "_2nd_Shade_Feather",
             "type": "Float",
             "value": "0.4"
-        },
-        {
-            "name": "_PCSS_FilterRadiusMax",
-            "type": "Float",
-            "value": "0.3"
-        },
-        {
-            "name": "_PCSS_MaxThickness",
-            "type": "Float",
-            "value": "0.5"
-        },
-        {
-            "name": "_DecoupleShadow",
-            "type": "Float",
-            "value": "1.0"
-        },
-        {
-            "name": "_ShadowAmbientInfluence",
-            "type": "Float",
-            "value": "0.4"
         }
     ]
 }
