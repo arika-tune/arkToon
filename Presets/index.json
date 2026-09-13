@@ -2,7 +2,7 @@
     "presets": [
         {
             "name": "Default",
-            "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/default.json",
+            "url": "default.json",
             "description": "Reset all settings to default values."
         },
         {
@@ -12,13 +12,18 @@
         },
         {
             "name": "Figure",
-            "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/figure.json",
+            "url": "figure.json",
             "description": "フィギュアのような質感にします。Recommended values for figures."
         },
         {
             "name": "Deep Shadow",
-            "url": "https://raw.githubusercontent.com/arika-tune/arkToon/refs/heads/main/Presets/deep_shadow.json",
+            "url": "deep_shadow.json",
             "description": "深く影を落とします。Deep shading effects."
+        },
+        {
+            "name": "Enable VRC Light Volumes",
+            "url": "LV_On.json",
+            "description": "VRC Light Volumesを有効にします。Enable VRC Light Volumes."
         }
     ]
 }
