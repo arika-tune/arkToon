@@ -1,0 +1,12 @@
+{
+    "name": "Figure",
+    "author": "ArkToon Project",
+    "description": "Recommended values for figures (Shadows & Outline).",
+    "properties": [
+        {
+            "name": "_Use_LightVolumes",
+            "type": "Float",
+            "value": "1"
+        }
+    ]
+}
