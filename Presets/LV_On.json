@@ -7,6 +7,11 @@
             "name": "_Use_LightVolumes",
             "type": "Float",
             "value": "1"
+        },
+        {
+            "name": "_LightVolumes_Specular",
+            "type": "Float",
+            "value": "1"
         }
     ]
 }
